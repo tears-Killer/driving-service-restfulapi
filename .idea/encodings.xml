@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/driving-service-restfulapi-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/driving-service-restfulapi-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/driving-service-restfulapi-provider/src/main/resources" charset="UTF-8" />
   </component>
 </project>
