@@ -28,13 +28,15 @@ public class BizAdminLoginBL {
 
     public AdminDetailsDTO adminlogin(AdminLoginDTO admin) {
         QueryWrapper<AdminBO> wrapper = new QueryWrapper<AdminBO>();
-        wrapper.eq("account",admin.getAccount())
+        wrapper.eq("phone",admin.getPhone())
                 .eq("password",admin.getPassword());
         AdminBO adminBO = userMapper.selectOne(wrapper);
         if(adminBO!=null) {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();
             adminDTO.setId(adminBO.getId());
-            adminDTO.setAccount(adminBO.getAccount());
+            adminDTO.setPhone(adminBO.getPhone());
+            adminDTO.setSex(adminBO.getSex());
+            adminDTO.setAge(adminBO.getAge());
             adminDTO.setPassword(adminBO.getPassword());
             adminDTO.setName(adminBO.getName());
             int auth = adminBO.getAuth();

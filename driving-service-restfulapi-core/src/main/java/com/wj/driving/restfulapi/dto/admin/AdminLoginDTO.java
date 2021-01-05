@@ -13,15 +13,15 @@ import java.io.Serializable;
  */
 public class AdminLoginDTO implements Serializable{
 
-    private String account;
+    private String phone;
     private String password;
 
-    public String getAccount() {
-        return account;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {

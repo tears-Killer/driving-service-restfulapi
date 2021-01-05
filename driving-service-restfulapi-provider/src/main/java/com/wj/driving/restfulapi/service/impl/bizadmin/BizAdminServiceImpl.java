@@ -4,6 +4,7 @@
 package com.wj.driving.restfulapi.service.impl.bizadmin;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.wj.driving.restfulapi.domain.bizadmin.BizAdminBL;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,10 +20,10 @@ import java.util.List;
 public class BizAdminServiceImpl implements com.wj.driving.restfulapi.service.bizadmin.BizAdminService {
 
     @Autowired
-    private com.wj.driving.restfulapi.service.bizadmin.BizAdminService bizAdminService;
+    private BizAdminBL bizAdminBL;
 
     @Override
     public List<AdminDetailsDTO> getAllAdmin() {
-        return bizAdminService.getAllAdmin();
+        return bizAdminBL.getAllAdmin();
     }
 }

@@ -6,6 +6,7 @@ package com.wj.driving.restfulapi.domain.bizadmin;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.domain.mapper.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
+import com.wj.driving.restfulapi.enums.admin.AuthEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,10 +34,21 @@ public class BizAdminBL {
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();
             adminDTO.setId(item.getId());
-            adminDTO.setAccount(item.getAccount());
+            adminDTO.setPhone(item.getPhone());
+            adminDTO.setSex(item.getSex());
+            adminDTO.setAge(item.getAge());
             adminDTO.setPassword(item.getPassword());
             adminDTO.setName(item.getName());
-//            adminDTO.setAuth(item.getAuth());
+            int auth = item.getAuth();
+            AuthEnum stage = null;
+            if(auth == 0){
+                stage = AuthEnum.普通管理员;
+            }else if(auth == 1){
+                stage = AuthEnum.总经理;
+            }else {
+                stage = AuthEnum.老板;
+            }
+            adminDTO.setAuth(stage);
             return adminDTO;
         }).collect(Collectors.toList());
     }

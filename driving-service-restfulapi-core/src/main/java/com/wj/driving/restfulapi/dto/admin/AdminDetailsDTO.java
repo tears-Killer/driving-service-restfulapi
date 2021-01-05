@@ -15,9 +15,11 @@ import java.io.Serializable;
  */
 public class AdminDetailsDTO implements Serializable {
     private Long id;
-    private String account;
-    private String password;
     private String name;
+    private String sex;
+    private Integer age;
+    private String phone;
+    private String password;
     private AuthEnum auth;
 
     public Long getId() {
@@ -28,12 +30,36 @@ public class AdminDetailsDTO implements Serializable {
         this.id = id;
     }
 
-    public String getAccount() {
-        return account;
+    public String getName() {
+        return name;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -42,14 +68,6 @@ public class AdminDetailsDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public AuthEnum getAuth() {
@@ -64,11 +82,12 @@ public class AdminDetailsDTO implements Serializable {
     public String toString() {
         return "AdminDetailsDTO{" +
                 "id=" + id +
-                ", account='" + account + '\'' +
-                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", phone='" + phone + '\'' +
+                ", password='" + password + '\'' +
                 ", auth=" + auth +
                 '}';
     }
-
 }
