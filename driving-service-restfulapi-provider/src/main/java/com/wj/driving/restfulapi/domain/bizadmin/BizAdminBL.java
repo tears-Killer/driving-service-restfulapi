@@ -36,7 +36,7 @@ public class BizAdminBL {
             adminDTO.setAccount(item.getAccount());
             adminDTO.setPassword(item.getPassword());
             adminDTO.setName(item.getName());
-            adminDTO.setAuth(item.getAuth());
+//            adminDTO.setAuth(item.getAuth());
             return adminDTO;
         }).collect(Collectors.toList());
     }

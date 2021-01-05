@@ -18,7 +18,7 @@ public class AdminDetailsDTO implements Serializable {
     private String account;
     private String password;
     private String name;
-    private Integer auth;
+    private AuthEnum auth;
 
     public Long getId() {
         return id;
@@ -52,11 +52,11 @@ public class AdminDetailsDTO implements Serializable {
         this.name = name;
     }
 
-    public Integer getAuth() {
+    public AuthEnum getAuth() {
         return auth;
     }
 
-    public void setAuth(Integer auth) {
+    public void setAuth(AuthEnum auth) {
         this.auth = auth;
     }
 
@@ -70,4 +70,5 @@ public class AdminDetailsDTO implements Serializable {
                 ", auth=" + auth +
                 '}';
     }
+
 }
