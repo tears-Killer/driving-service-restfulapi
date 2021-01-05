@@ -52,4 +52,29 @@ public class BizAdminBL {
             return adminDTO;
         }).collect(Collectors.toList());
     }
+
+
+    public int addAdmin(AdminDetailsDTO adminDTO){
+        AdminBO adminBO = new AdminBO();
+        adminBO.setName(adminDTO.getName());
+        adminBO.setSex(adminDTO.getSex());
+        adminBO.setAge(adminDTO.getAge());
+        adminBO.setPhone(adminDTO.getPhone());
+        adminBO.setPassword(adminDTO.getPassword());
+        adminBO.setAuth(adminDTO.getAuth().getAuth());
+        return userMapper.insert(adminBO);
+    }
+
+
+    public int updateAdmin(AdminDetailsDTO adminDTO){
+        AdminBO adminBO = new AdminBO();
+        adminBO.setId(adminDTO.getId());
+        adminBO.setName(adminDTO.getName());
+        adminBO.setSex(adminDTO.getSex());
+        adminBO.setAge(adminDTO.getAge());
+        adminBO.setPhone(adminDTO.getPhone());
+        adminBO.setPassword(adminDTO.getPassword());
+        adminBO.setAuth(adminDTO.getAuth().getAuth());
+        return userMapper.updateById(adminBO);
+    }
 }

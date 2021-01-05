@@ -19,4 +19,8 @@ public enum AuthEnum {
     AuthEnum(Integer auth) {
         this.auth = auth;
     }
+
+    public Integer getAuth() {
+        return auth;
+    }
 }

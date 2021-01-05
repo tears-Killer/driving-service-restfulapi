@@ -26,4 +26,19 @@ public class BizAdminServiceImpl implements com.wj.driving.restfulapi.service.bi
     public List<AdminDetailsDTO> getAllAdmin() {
         return bizAdminBL.getAllAdmin();
     }
+
+    @Override
+    public int addAdmin(AdminDetailsDTO adminDTO) {
+        return bizAdminBL.addAdmin(adminDTO);
+    }
+
+    @Override
+    public int updateAdmin(AdminDetailsDTO adminDTO) {
+        return bizAdminBL.updateAdmin(adminDTO);
+    }
+
+    @Override
+    public int updateAdminPWD() {
+        return 0;
+    }
 }

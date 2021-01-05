@@ -16,4 +16,10 @@ import java.util.List;
 public interface BizAdminService {
 
     List<AdminDetailsDTO> getAllAdmin();
+
+    int addAdmin(AdminDetailsDTO adminDTO);
+
+    int updateAdmin(AdminDetailsDTO adminDetailsDTO);
+
+    int updateAdminPWD();
 }
