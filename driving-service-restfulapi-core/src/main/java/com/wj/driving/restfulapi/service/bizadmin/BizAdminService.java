@@ -19,7 +19,7 @@ public interface BizAdminService {
 
     int addAdmin(AdminDetailsDTO adminDTO);
 
-    int updateAdmin(AdminDetailsDTO adminDetailsDTO);
+    int updateAdmin(AdminDetailsDTO adminDTO);
 
-    int updateAdminPWD();
+    int updateAdminPWD(AdminDetailsDTO adminDTO);
 }

@@ -38,7 +38,7 @@ public class BizAdminServiceImpl implements com.wj.driving.restfulapi.service.bi
     }
 
     @Override
-    public int updateAdminPWD() {
-        return 0;
+    public int updateAdminPWD(AdminDetailsDTO adminDTO) {
+        return bizAdminBL.updateAdminPWD(adminDTO);
     }
 }

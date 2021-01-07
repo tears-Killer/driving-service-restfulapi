@@ -77,4 +77,11 @@ public class BizAdminBL {
         adminBO.setAuth(adminDTO.getAuth().getAuth());
         return userMapper.updateById(adminBO);
     }
+
+    public int updateAdminPWD(AdminDetailsDTO adminDTO){
+        AdminBO adminBO = new AdminBO();
+        adminBO.setId(adminDTO.getId());
+        adminBO.setPassword(adminDTO.getPassword());
+        return userMapper.updateById(adminBO);
+    }
 }
