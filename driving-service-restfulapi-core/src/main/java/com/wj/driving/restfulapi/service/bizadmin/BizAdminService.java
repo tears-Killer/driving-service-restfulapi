@@ -21,5 +21,5 @@ public interface BizAdminService {
 
     int updateAdmin(AdminDetailsDTO adminDTO);
 
-    int updateAdminPWD(AdminDetailsDTO adminDTO);
+    int updateAdminPWD(AdminDetailsDTO adminDTO,String newPassword);
 }

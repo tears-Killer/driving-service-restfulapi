@@ -3,6 +3,8 @@
  */
 package com.wj.driving.restfulapi.domain.bizadmin;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.domain.mapper.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
@@ -78,10 +80,15 @@ public class BizAdminBL {
         return userMapper.updateById(adminBO);
     }
 
-    public int updateAdminPWD(AdminDetailsDTO adminDTO){
-        AdminBO adminBO = new AdminBO();
-        adminBO.setId(adminDTO.getId());
-        adminBO.setPassword(adminDTO.getPassword());
-        return userMapper.updateById(adminBO);
+    public int updateAdminPWD(AdminDetailsDTO adminDTO,String newPWD){
+        QueryWrapper<AdminBO> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",adminDTO.getId())
+                .eq("password",adminDTO.getPassword());
+        AdminBO adminBO = userMapper.selectOne(wrapper);
+        if(adminBO!=null){
+            adminBO.setPassword(newPWD);
+            return userMapper.updateById(adminBO);
+        }
+        return 0;
     }
 }
