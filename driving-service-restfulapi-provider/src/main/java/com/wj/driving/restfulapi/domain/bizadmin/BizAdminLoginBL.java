@@ -13,6 +13,8 @@ import com.wj.driving.restfulapi.enums.admin.AuthEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * @ClassName BizAdminLoginBL
  * @Description TODO
@@ -23,14 +25,13 @@ import org.springframework.stereotype.Service;
 public class BizAdminLoginBL {
 
     @Autowired
-    private AdminMapper userMapper;
-
+    private AdminMapper adminMapper;
 
     public AdminDetailsDTO adminlogin(AdminLoginDTO admin) {
         QueryWrapper<AdminBO> wrapper = new QueryWrapper<AdminBO>();
         wrapper.eq("phone",admin.getPhone())
                 .eq("password",admin.getPassword());
-        AdminBO adminBO = userMapper.selectOne(wrapper);
+        AdminBO adminBO = adminMapper.selectOne(wrapper);
         if(adminBO!=null) {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();
             adminDTO.setId(adminBO.getId());
