@@ -41,16 +41,7 @@ public class BizAdminBL {
             adminDTO.setAge(item.getAge());
             adminDTO.setPassword(item.getPassword());
             adminDTO.setName(item.getName());
-            int auth = item.getAuth();
-            AuthEnum stage = null;
-            if(auth == 0){
-                stage = AuthEnum.普通管理员;
-            }else if(auth == 1){
-                stage = AuthEnum.总经理;
-            }else {
-                stage = AuthEnum.老板;
-            }
-            adminDTO.setAuth(stage);
+            adminDTO.setAuth(item.getAuth());
             return adminDTO;
         }).collect(Collectors.toList());
     }
@@ -63,7 +54,7 @@ public class BizAdminBL {
         adminBO.setAge(adminDTO.getAge());
         adminBO.setPhone(adminDTO.getPhone());
         adminBO.setPassword(adminDTO.getPassword());
-        adminBO.setAuth(adminDTO.getAuth().getAuth());
+        adminBO.setAuth(adminDTO.getAuth());
         return userMapper.insert(adminBO);
     }
 
@@ -76,7 +67,8 @@ public class BizAdminBL {
         adminBO.setAge(adminDTO.getAge());
         adminBO.setPhone(adminDTO.getPhone());
         adminBO.setPassword(adminDTO.getPassword());
-        adminBO.setAuth(adminDTO.getAuth().getAuth());
+        adminBO.setAuth(adminDTO.getAuth());
+        adminDTO.setAuthName(AuthEnum.getSourceType(adminBO.getAuth()));
         return userMapper.updateById(adminBO);
     }
 

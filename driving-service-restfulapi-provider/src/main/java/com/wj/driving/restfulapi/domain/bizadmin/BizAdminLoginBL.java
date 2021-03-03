@@ -39,16 +39,8 @@ public class BizAdminLoginBL {
             adminDTO.setAge(adminBO.getAge());
             adminDTO.setPassword(adminBO.getPassword());
             adminDTO.setName(adminBO.getName());
-            int auth = adminBO.getAuth();
-            AuthEnum stage = null;
-            if(auth == 0){
-                stage = AuthEnum.普通管理员;
-            }else if(auth == 1){
-                stage = AuthEnum.总经理;
-            }else {
-                stage = AuthEnum.老板;
-            }
-            adminDTO.setAuth(stage);
+            adminDTO.setAuth(adminBO.getAuth());
+            adminDTO.setAuthName(AuthEnum.getSourceType(adminBO.getAuth()));
             return adminDTO;
         }
         return null;

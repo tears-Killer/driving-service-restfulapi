@@ -17,7 +17,8 @@ public class AdminDetailsDTO implements Serializable {
     private Integer age;
     private String phone;
     private String password;
-    private AuthEnum auth;
+    private Integer auth;
+    private String authName;
 
     public Long getId() {
         return id;
@@ -67,12 +68,20 @@ public class AdminDetailsDTO implements Serializable {
         this.password = password;
     }
 
-    public AuthEnum getAuth() {
+    public Integer getAuth() {
         return auth;
     }
 
-    public void setAuth(AuthEnum auth) {
+    public void setAuth(Integer auth) {
         this.auth = auth;
+    }
+
+    public String getAuthName() {
+        return authName;
+    }
+
+    public void setAuthName(String authName) {
+        this.authName = authName;
     }
 
     @Override
@@ -85,6 +94,7 @@ public class AdminDetailsDTO implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
                 ", auth=" + auth +
+                ", authName='" + authName + '\'' +
                 '}';
     }
 }
