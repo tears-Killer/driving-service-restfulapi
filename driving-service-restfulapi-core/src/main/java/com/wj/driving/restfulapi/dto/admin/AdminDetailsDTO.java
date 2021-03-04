@@ -1,7 +1,5 @@
 package com.wj.driving.restfulapi.dto.admin;
 
-import com.wj.driving.restfulapi.enums.admin.AuthEnum;
-
 import java.io.Serializable;
 
 /**
