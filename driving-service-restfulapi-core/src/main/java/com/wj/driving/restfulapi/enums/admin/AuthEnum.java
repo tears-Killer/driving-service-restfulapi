@@ -7,9 +7,9 @@ package com.wj.driving.restfulapi.enums.admin;
  * @Date 2020/12/31 16:29
  */
 public enum AuthEnum {
-    普通管理员(0,"普通管理员"),
-    总经理(1,"总经理"),
-    老板(2,"老板");
+    普通管理员(0,"普通员工"),
+    总经理(1,"组长"),
+    老板(2,"总监");
 
     private Integer auth;
 
