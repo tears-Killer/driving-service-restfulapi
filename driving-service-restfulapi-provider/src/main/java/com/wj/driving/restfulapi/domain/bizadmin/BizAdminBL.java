@@ -11,6 +11,7 @@ import com.wj.driving.restfulapi.enums.admin.AuthEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -81,5 +82,9 @@ public class BizAdminBL {
             return userMapper.updateById(adminBO);
         }
         return 0;
+    }
+
+    public int deleteAdmin(Long id){
+        return userMapper.deleteById(id);
     }
 }

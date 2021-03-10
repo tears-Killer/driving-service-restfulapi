@@ -19,4 +19,6 @@ public interface BizAdminService {
     int updateAdmin(AdminDetailsDTO adminDTO);
 
     int updateAdminPWD(AdminDetailsDTO adminDTO,String newPassword);
+
+    int deleteAdmin(Long id);
 }

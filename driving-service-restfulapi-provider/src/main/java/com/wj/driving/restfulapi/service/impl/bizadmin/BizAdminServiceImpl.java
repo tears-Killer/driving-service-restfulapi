@@ -42,4 +42,9 @@ public class BizAdminServiceImpl implements BizAdminService {
     public int updateAdminPWD(AdminDetailsDTO adminDTO,String newPassword) {
         return bizAdminBL.updateAdminPWD(adminDTO,newPassword);
     }
+
+    @Override
+    public int deleteAdmin(Long id) {
+        return bizAdminBL.deleteAdmin(id);
+    }
 }
