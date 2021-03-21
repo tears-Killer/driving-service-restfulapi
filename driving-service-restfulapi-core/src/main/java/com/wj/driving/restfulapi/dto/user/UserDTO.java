@@ -1,7 +1,9 @@
 package com.wj.driving.restfulapi.dto.user;
 
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
 
     private Long id;
 
