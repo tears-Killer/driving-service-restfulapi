@@ -1,11 +1,11 @@
 /**
  * Copyright 2017 武汉易酒批电子商务有限公司. All rights reserved.
  */
-package com.wj.driving.restfulapi.domain.bizadmin;
+package com.wj.driving.restfulapi.domain.bl.bizadmin;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
-import com.wj.driving.restfulapi.domain.mapper.AdminMapper;
+import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.dto.admin.AdminLoginDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;

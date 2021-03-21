@@ -4,7 +4,7 @@
 package com.wj.driving.restfulapi.service.impl.bizadmin;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.wj.driving.restfulapi.domain.bizadmin.BizAdminLoginBL;
+import com.wj.driving.restfulapi.domain.bl.bizadmin.BizAdminLoginBL;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.dto.admin.AdminLoginDTO;
 import com.wj.driving.restfulapi.service.bizadmin.BizAdminLoginService;

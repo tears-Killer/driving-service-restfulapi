@@ -1,4 +1,4 @@
-package com.wj.driving.restfulapi.domain.mapper;
+package com.wj.driving.restfulapi.domain.mapper.admin;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
