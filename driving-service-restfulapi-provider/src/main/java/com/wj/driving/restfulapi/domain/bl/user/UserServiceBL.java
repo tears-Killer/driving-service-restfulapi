@@ -6,6 +6,7 @@ import com.wj.driving.restfulapi.dto.user.UserDTO;
 import com.wj.driving.restfulapi.enums.user.UserStatusEnum;
 import com.wj.driving.restfulapi.request.user.UserSearchRequest;
 import com.wj.driving.restfulapi.result.PageResult;
+import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +34,8 @@ public class UserServiceBL {
                 userDTO.setSex(item.getSex());
                 userDTO.setNickname(item.getNickname());
                 userDTO.setMobileNo(item.getMobileNo());
-                userDTO.setIdCard(String.valueOf(item.getIdCard()));
+                String idCard = PrivacyDimmer.maskIdCard(String.valueOf(item.getIdCard()));
+                userDTO.setIdCard(idCard);
                 userDTO.setState(UserStatusEnum.getSourceType(item.getState()));
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String createTime = formatter.format(item.getCreateTime());
