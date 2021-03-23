@@ -3,6 +3,8 @@ package com.wj.driving.restfulapi.domain.mapper.admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
+import com.wj.driving.restfulapi.utils.PagingCondition;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,4 +19,6 @@ import java.util.List;
 public interface AdminMapper extends BaseMapper<AdminBO> {
 
     List<AdminBO> selectPage(AdminSearchRequest request);
+
+    int countAdmin(AdminSearchRequest request));
 }

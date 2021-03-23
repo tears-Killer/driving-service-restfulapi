@@ -9,6 +9,7 @@ import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;
 import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
+import com.wj.driving.restfulapi.utils.PagingCondition;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,6 @@ public class BizAdminBL {
 
     public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
         request.setPage(request.getPage()-1);
-        request.setPageSize((request.getPage()-1)* request.getPageSize());
         List<AdminBO> adminBOList = userMapper.selectPage(request);
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();

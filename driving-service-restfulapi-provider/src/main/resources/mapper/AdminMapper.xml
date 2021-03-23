@@ -13,7 +13,7 @@
         from admin
         <include refid="pageWhereSql"></include>
         order by id
---         limit #{page},#{pageSize}
+        limit #{page},#{pageSize}
     </select>
 
     <sql id="pageWhereSql">

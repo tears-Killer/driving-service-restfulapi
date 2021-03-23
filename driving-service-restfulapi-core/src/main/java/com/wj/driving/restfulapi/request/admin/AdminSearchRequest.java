@@ -48,7 +48,7 @@ public class AdminSearchRequest implements Serializable {
     }
 
     public Integer getPage() {
-        return page;
+        return page>0 ? 1:page;
     }
 
     public void setPage(Integer page) {
@@ -56,7 +56,7 @@ public class AdminSearchRequest implements Serializable {
     }
 
     public Integer getPageSize() {
-        return pageSize;
+        return pageSize>0 ? 10:pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
