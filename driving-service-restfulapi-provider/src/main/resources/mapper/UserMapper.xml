@@ -18,7 +18,7 @@
 
     <select id="countUser" resultType="java.lang.Integer">
         select count(1)
-        from user
+        from biz_user
         <include refid="pageWhereSql"></include>
     </select>
 
