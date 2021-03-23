@@ -31,6 +31,8 @@ public class BizAdminBL {
 
 
     public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+        request.setPage(request.getPage()-1);
+        request.setPageSize((request.getPage()-1)* request.getPageSize());
         List<AdminBO> adminBOList = userMapper.selectPage(request);
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();

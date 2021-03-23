@@ -12,9 +12,9 @@ public class UserSearchRequest implements Serializable {
 
     private Integer state;
 
-    private Integer page;
+    private Integer page = 1;
 
-    private Integer pageSize;
+    private Integer pageSize = 10;
 
     public String getName() {
         return name;
@@ -48,8 +48,12 @@ public class UserSearchRequest implements Serializable {
         this.state = state;
     }
 
+    public Integer getPage() {
+        return page;
+    }
+
     public void setPage(Integer page) {
-        this.page = page == null ? 1:page;
+        this.page = page;
     }
 
     public Integer getPageSize() {
@@ -57,6 +61,6 @@ public class UserSearchRequest implements Serializable {
     }
 
     public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize == null ? 10:pageSize;
+        this.pageSize = pageSize;
     }
 }
