@@ -33,8 +33,6 @@ public class BizAdminBL {
 
     public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
         List<AdminBO> adminBOList = userMapper.selectPage(request);
-        System.out.println(adminBOList);
-        List<AdminDetailsDTO> adminDTOList = new ArrayList<>();
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();
             adminDTO.setId(item.getId());
