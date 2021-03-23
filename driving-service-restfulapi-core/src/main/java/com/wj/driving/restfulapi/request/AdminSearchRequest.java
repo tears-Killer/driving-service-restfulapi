@@ -3,13 +3,15 @@
  */
 package com.wj.driving.restfulapi.request;
 
+import java.io.Serializable;
+
 /**
  * @ClassName AdminSearchRequest
  * @Description 管理员搜索条件
  * @Author wangjian
  * @Date 2021/3/23 13:58
  */
-public class AdminSearchRequest {
+public class AdminSearchRequest implements Serializable {
 
     private String name;
 
