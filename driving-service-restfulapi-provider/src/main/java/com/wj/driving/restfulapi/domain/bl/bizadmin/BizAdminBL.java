@@ -8,6 +8,7 @@ import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;
+import com.wj.driving.restfulapi.request.AdminSearchRequest;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +31,12 @@ public class BizAdminBL {
     private AdminMapper userMapper;
 
 
-    public List<AdminDetailsDTO> getAllAdmin() {
-
-        List<AdminBO> adminBOList = userMapper.selectList(null);
+    public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+        QueryWrapper<AdminBO> wrapper = new QueryWrapper<>();
+        wrapper.likeLeft("name",request.getName())
+                .likeLeft("phone",request.getPhone())
+                .eq("auth",request.getAuth());
+        List<AdminBO> adminBOList = userMapper.selectList(wrapper);
         List<AdminDetailsDTO> adminDTOList = new ArrayList<>();
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();

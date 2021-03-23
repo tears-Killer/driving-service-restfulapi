@@ -1,6 +1,7 @@
 package com.wj.driving.restfulapi.service.bizadmin;
 
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
+import com.wj.driving.restfulapi.request.AdminSearchRequest;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public interface BizAdminService {
 
-    List<AdminDetailsDTO> getAllAdmin();
+    List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request);
 
     int addAdmin(AdminDetailsDTO adminDTO);
 

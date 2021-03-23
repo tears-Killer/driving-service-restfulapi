@@ -9,8 +9,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class PrivacyDimmer {
     private static final String OVERLAY = "****";
-    private static final int START = 3;
-    private static final int END = 7;
+
     /**
      * 139****0504
      *
@@ -21,7 +20,7 @@ public class PrivacyDimmer {
         if (StringUtils.isEmpty(content)) {
             return "";
         }
-        return StringUtils.overlay(content, OVERLAY, START, END);
+        return StringUtils.overlay(content, OVERLAY, 3, 7);
     }
 
     /**
@@ -44,7 +43,7 @@ public class PrivacyDimmer {
          */
         int length = StringUtils.indexOf(email, at);
         String content = StringUtils.substring(email, 0, length);
-        String mask = StringUtils.overlay(content, OVERLAY, START, END);
+        String mask = StringUtils.overlay(content, OVERLAY, 3, 7);
         return mask + StringUtils.substring(email, length);
     }
 
@@ -58,6 +57,6 @@ public class PrivacyDimmer {
         if (StringUtils.isEmpty(idCard)) {
             return "";
         }
-        return StringUtils.overlay(idCard, OVERLAY, START, END);
+        return StringUtils.overlay(idCard, OVERLAY, 4, 14);
     }
 }
