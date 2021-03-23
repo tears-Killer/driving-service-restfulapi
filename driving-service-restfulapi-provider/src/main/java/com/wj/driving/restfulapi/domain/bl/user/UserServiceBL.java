@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceBL {
@@ -35,7 +36,7 @@ public class UserServiceBL {
                 userDTO.setSex(item.getSex());
                 userDTO.setNickname(item.getNickname());
                 userDTO.setMobileNo(item.getMobileNo());
-                if(StringUtils.isNotBlank(item.getIdCard())){
+                if(Objects.isNull(item.getIdCard())){
                     String idCard = PrivacyDimmer.maskIdCard(String.valueOf(item.getIdCard()));
                     userDTO.setIdCard(idCard);
                 }
