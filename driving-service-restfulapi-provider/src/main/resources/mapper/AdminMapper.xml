@@ -11,9 +11,9 @@
         select
         <include refid="base_column"></include>
         from admin
-        order by id
         <include refid="pageWhereSql"></include>
-        limit #{page},#{pageSize}
+        order by id
+--         limit #{page},#{pageSize}
     </select>
 
     <sql id="pageWhereSql">
