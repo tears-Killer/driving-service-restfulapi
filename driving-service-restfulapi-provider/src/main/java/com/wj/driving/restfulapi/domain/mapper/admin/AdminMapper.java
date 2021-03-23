@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @InterfaceName AdminMapper
- * @Description TODO
+ * @Description
  * @Author wangjian
  * @Date 2020/12/22 16:00
  */

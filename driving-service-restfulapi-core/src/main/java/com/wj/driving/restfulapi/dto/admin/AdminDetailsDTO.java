@@ -4,18 +4,28 @@ import java.io.Serializable;
 
 /**
  * @ClassName AdminDTO
- * @Description TODO
+ * @Description
  * @Author wangjian
  * @Date 2020/12/31 16:03
  */
 public class AdminDetailsDTO implements Serializable {
+
     private Long id;
+
     private String name;
+
     private String sex;
+
     private Integer age;
+
     private String phone;
+
+    private String idCard;
+
     private String password;
+
     private Integer auth;
+
     private String authName;
 
     public Long getId() {
@@ -66,6 +76,14 @@ public class AdminDetailsDTO implements Serializable {
         this.password = password;
     }
 
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
     public Integer getAuth() {
         return auth;
     }
@@ -90,6 +108,7 @@ public class AdminDetailsDTO implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
                 ", phone='" + phone + '\'' +
+                ", idCard='" + idCard + '\'' +
                 ", password='" + password + '\'' +
                 ", auth=" + auth +
                 ", authName='" + authName + '\'' +

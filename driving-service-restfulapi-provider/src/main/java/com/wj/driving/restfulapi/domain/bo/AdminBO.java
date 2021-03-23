@@ -34,6 +34,9 @@ public class AdminBO implements Serializable {
    	@TableField("phone" )
 	private String phone;
 
+   	@TableField("id_card")
+	private String idCard;
+
    	@TableField("password" )
 	private String password;
 
@@ -86,6 +89,14 @@ public class AdminBO implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 	public Integer getAuth() {

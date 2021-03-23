@@ -8,6 +8,8 @@ import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;
+import com.wj.driving.restfulapi.utils.PrivacyDimmer;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,7 @@ import java.util.stream.Collectors;
 
 /**
  * @ClassName BizAdminBL
- * @Description TODO
+ * @Description
  * @Author wangjian
  * @Date 2020/12/31 12:50
  */
@@ -39,6 +41,10 @@ public class BizAdminBL {
             adminDTO.setSex(item.getSex());
             adminDTO.setAge(item.getAge());
             adminDTO.setPassword(item.getPassword());
+            if(StringUtils.isNotBlank(item.getIdCard())){
+                String idCard = PrivacyDimmer.maskIdCard(item.getIdCard());
+                adminDTO.setIdCard(idCard);
+            }
             adminDTO.setName(item.getName());
             adminDTO.setAuth(item.getAuth());
             return adminDTO;

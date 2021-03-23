@@ -8,7 +8,7 @@ import com.wj.driving.restfulapi.dto.admin.AdminLoginDTO;
 
 /**
  * @InterfaceName BizAdminLoginService
- * @Description TODO
+ * @Description
  * @Author wangjian
  * @Date 2020/12/31 16:09
  */
