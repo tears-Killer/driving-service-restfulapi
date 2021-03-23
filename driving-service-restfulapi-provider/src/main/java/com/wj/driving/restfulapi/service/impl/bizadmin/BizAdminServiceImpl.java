@@ -6,7 +6,7 @@ package com.wj.driving.restfulapi.service.impl.bizadmin;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wj.driving.restfulapi.domain.bl.bizadmin.BizAdminBL;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
-import com.wj.driving.restfulapi.request.AdminSearchRequest;
+import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
 import com.wj.driving.restfulapi.service.bizadmin.BizAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 

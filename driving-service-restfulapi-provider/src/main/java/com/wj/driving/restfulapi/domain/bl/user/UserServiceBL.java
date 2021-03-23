@@ -4,6 +4,7 @@ import com.wj.driving.restfulapi.domain.bo.UserBO;
 import com.wj.driving.restfulapi.domain.mapper.user.UserMapper;
 import com.wj.driving.restfulapi.dto.user.UserDTO;
 import com.wj.driving.restfulapi.enums.user.UserStatusEnum;
+import com.wj.driving.restfulapi.request.user.UserSearchRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class UserServiceBL {
     @Autowired
     private UserMapper userMapper;
 
-    public List<UserDTO> getUserList(){
+    public List<UserDTO> getUserList(UserSearchRequest request){
         List<UserBO> userBOList = userMapper.selectList(null);
         List<UserDTO> resultList = new ArrayList<>();
         userBOList.forEach(item ->{

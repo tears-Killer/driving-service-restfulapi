@@ -1,7 +1,7 @@
 package com.wj.driving.restfulapi.service.bizadmin;
 
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
-import com.wj.driving.restfulapi.request.AdminSearchRequest;
+import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
 
 import java.util.List;
 

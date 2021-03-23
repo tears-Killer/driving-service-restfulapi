@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 武汉易酒批电子商务有限公司. All rights reserved.
  */
-package com.wj.driving.restfulapi.request;
+package com.wj.driving.restfulapi.request.admin;
 
 import java.io.Serializable;
 
@@ -18,6 +18,10 @@ public class AdminSearchRequest implements Serializable {
     private String phone;
 
     private Integer auth;
+
+    private Integer page;
+
+    private Integer pageSize;
 
     public String getName() {
         return name;
@@ -41,5 +45,17 @@ public class AdminSearchRequest implements Serializable {
 
     public void setAuth(Integer auth) {
         this.auth = auth;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page == null ? 1:page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize == null ? 10:pageSize;
     }
 }

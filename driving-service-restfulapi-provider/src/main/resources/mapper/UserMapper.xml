@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper">
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.user.UserMapper">
 
     <!--基础字段-->
     <sql id="base_column">
-        id,name,sex,age,phone,id_card,password,auth
+        id,name,nickname,sex,mobile_no,id_card,address_id,state,create_time,last_update_time
     </sql>
 
     <select id="selectPage" resultType="com.wj.driving.restfulapi.domain.bo.AdminBO">
@@ -21,11 +21,14 @@
             <if test="name != null and name != ''">
                 AND name like concat(trim(#{name}),'%')
             </if>
-            <if test="phone != null and phone != ''">
-                AND phone like concat(trim(#{phone}),'%')
+            <if test="nickname != null and nickname != ''">
+                AND nickname like concat(trim(#{nickname}),'%')
             </if>
-            <if test="auth != null">
-                AND auth = #{auth}
+            <if test="mobileNo != null and mobileNo != ''">
+                AND mobile_no like concat(trim(#{mobileNo}),'%')
+            </if>
+            <if test="state != null">
+                AND state = #{state}
             </if>
         </where>
     </sql>
