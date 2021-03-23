@@ -32,11 +32,8 @@ public class BizAdminBL {
 
 
     public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
-        QueryWrapper<AdminBO> wrapper = new QueryWrapper<>();
-        wrapper.likeLeft("name",request.getName())
-                .likeLeft("phone",request.getPhone())
-                .eq("auth",request.getAuth());
-        List<AdminBO> adminBOList = userMapper.selectList(wrapper);
+        List<AdminBO> adminBOList = userMapper.selectPage(request);
+        System.out.println(adminBOList);
         List<AdminDetailsDTO> adminDTOList = new ArrayList<>();
         return adminBOList.stream().map(item -> {
             AdminDetailsDTO adminDTO = new AdminDetailsDTO();
