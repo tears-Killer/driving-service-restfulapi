@@ -11,4 +11,6 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<UserBO> {
 
     List<UserBO> selectPage(UserSearchRequest request);
+
+    int countUser(UserSearchRequest request);
 }

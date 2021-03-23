@@ -16,6 +16,12 @@
 --         limit #{page},#{pageSize}
     </select>
 
+    <select id="countUser" resultType="java.lang.Integer">
+        select count(1)
+        from user
+        <include refid="pageWhereSql"></include>
+    </select>
+
     <sql id="pageWhereSql">
         <where>
             <if test="name != null and name != ''">

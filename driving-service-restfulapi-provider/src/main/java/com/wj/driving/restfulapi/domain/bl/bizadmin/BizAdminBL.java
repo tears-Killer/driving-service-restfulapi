@@ -9,7 +9,7 @@ import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;
 import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
-import com.wj.driving.restfulapi.utils.PagingCondition;
+import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,24 +31,31 @@ public class BizAdminBL {
     private AdminMapper userMapper;
 
 
-    public List<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+    public PageResult<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+        PageResult<AdminDetailsDTO> result = new PageResult();
         request.setPage(request.getPage()-1);
+        int totalCount = userMapper.countAdmin(request);
         List<AdminBO> adminBOList = userMapper.selectPage(request);
-        return adminBOList.stream().map(item -> {
-            AdminDetailsDTO adminDTO = new AdminDetailsDTO();
-            adminDTO.setId(item.getId());
-            adminDTO.setPhone(item.getPhone());
-            adminDTO.setSex(item.getSex());
-            adminDTO.setAge(item.getAge());
-            adminDTO.setPassword(item.getPassword());
-            if(StringUtils.isNotBlank(item.getIdCard())){
-                String idCard = PrivacyDimmer.maskIdCard(item.getIdCard());
-                adminDTO.setIdCard(idCard);
-            }
-            adminDTO.setName(item.getName());
-            adminDTO.setAuth(item.getAuth());
-            return adminDTO;
-        }).collect(Collectors.toList());
+        if(totalCount>0){
+            List<AdminDetailsDTO> dtoList = adminBOList.stream().map(item -> {
+                AdminDetailsDTO adminDTO = new AdminDetailsDTO();
+                adminDTO.setId(item.getId());
+                adminDTO.setPhone(item.getPhone());
+                adminDTO.setSex(item.getSex());
+                adminDTO.setAge(item.getAge());
+                adminDTO.setPassword(item.getPassword());
+                if(StringUtils.isNotBlank(item.getIdCard())){
+                    String idCard = PrivacyDimmer.maskIdCard(item.getIdCard());
+                    adminDTO.setIdCard(idCard);
+                }
+                adminDTO.setName(item.getName());
+                adminDTO.setAuth(item.getAuth());
+                return adminDTO;
+            }).collect(Collectors.toList());
+            result.setList(dtoList);
+            result.setTotalCount(totalCount);
+        }
+        return result;
     }
 
 
