@@ -26,7 +26,7 @@ public class UserBO {
 
     private Long addressId;
 
-    private Long idCard;
+    private String idCard;
 
     private Integer state;
 
@@ -82,11 +82,11 @@ public class UserBO {
         this.addressId = addressId;
     }
 
-    public Long getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(Long idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 

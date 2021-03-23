@@ -36,8 +36,8 @@ public class UserServiceBL {
                 userDTO.setSex(item.getSex());
                 userDTO.setNickname(item.getNickname());
                 userDTO.setMobileNo(item.getMobileNo());
-                if(Objects.isNull(item.getIdCard())){
-                    String idCard = PrivacyDimmer.maskIdCard(String.valueOf(item.getIdCard()));
+                if(StringUtils.isNotBlank(item.getIdCard())){
+                    String idCard = PrivacyDimmer.maskIdCard(item.getIdCard());
                     userDTO.setIdCard(idCard);
                 }
                 userDTO.setState(UserStatusEnum.getSourceType(item.getState()));
