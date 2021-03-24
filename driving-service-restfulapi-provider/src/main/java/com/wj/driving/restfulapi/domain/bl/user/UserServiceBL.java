@@ -26,7 +26,7 @@ public class UserServiceBL {
         PageResult<UserDTO> result = new PageResult<>();
         request.setPage(request.getPage()-1);
         int totalCount = userMapper.countUser(request);
-        List<UserBO> userBOList = userMapper.selectList(null);
+        List<UserBO> userBOList = userMapper.selectPage(request);
         List<UserDTO> resultList = new ArrayList<>();
         if(totalCount>0){
             userBOList.forEach(item ->{
