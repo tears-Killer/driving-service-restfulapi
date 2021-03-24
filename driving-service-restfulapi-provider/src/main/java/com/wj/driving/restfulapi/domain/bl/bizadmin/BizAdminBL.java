@@ -33,7 +33,6 @@ public class BizAdminBL {
 
     public PageResult<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
         PageResult<AdminDetailsDTO> result = new PageResult();
-        request.setPage(request.getPage()-1);
         int totalCount = userMapper.countAdmin(request);
         List<AdminBO> adminBOList = userMapper.selectPage(request);
         if(totalCount>0){
@@ -65,6 +64,7 @@ public class BizAdminBL {
         adminBO.setSex(adminDTO.getSex());
         adminBO.setAge(adminDTO.getAge());
         adminBO.setPhone(adminDTO.getPhone());
+        adminBO.setIdCard(adminDTO.getIdCard());
         adminBO.setPassword(adminDTO.getPassword());
         adminBO.setAuth(adminDTO.getAuth());
         return userMapper.insert(adminBO);
@@ -78,6 +78,7 @@ public class BizAdminBL {
         adminBO.setSex(adminDTO.getSex());
         adminBO.setAge(adminDTO.getAge());
         adminBO.setPhone(adminDTO.getPhone());
+        adminBO.setIdCard(adminBO.getIdCard());
         adminBO.setPassword(adminDTO.getPassword());
         adminBO.setAuth(adminDTO.getAuth());
         adminDTO.setAuthName(AuthEnum.getSourceType(adminBO.getAuth()));

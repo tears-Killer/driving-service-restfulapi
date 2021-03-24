@@ -49,7 +49,7 @@ public class UserSearchRequest implements Serializable {
     }
 
     public Integer getPage() {
-        return page>0 ? 1:page;
+        return page == null ? 0:(page-1)*getPageSize();
     }
 
     public void setPage(Integer page) {

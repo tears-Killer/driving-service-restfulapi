@@ -19,9 +19,9 @@ public class AdminSearchRequest implements Serializable {
 
     private Integer auth;
 
-    private Integer page = 1;
+    private Integer page;
 
-    private Integer pageSize = 10;
+    private Integer pageSize;
 
     public String getName() {
         return name;
@@ -48,7 +48,7 @@ public class AdminSearchRequest implements Serializable {
     }
 
     public Integer getPage() {
-        return page>0 ? 1:page;
+        return page == null ? 0:(page-1)*getPageSize();
     }
 
     public void setPage(Integer page) {
