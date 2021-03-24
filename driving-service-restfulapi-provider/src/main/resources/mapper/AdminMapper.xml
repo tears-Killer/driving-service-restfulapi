@@ -25,10 +25,10 @@
     <sql id="pageWhereSql">
         <where>
             <if test="name != null and name != ''">
-                AND name like concat(trim(#{name}),'%')
+                AND name like concat('%',trim(#{name}),'%')
             </if>
             <if test="phone != null and phone != ''">
-                AND phone like concat(trim(#{phone}),'%')
+                AND phone like concat('%',trim(#{phone}),'%')
             </if>
             <if test="auth != null">
                 AND auth = #{auth}
