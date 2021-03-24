@@ -10,7 +10,7 @@
     <select id="selectPage" resultType="com.wj.driving.restfulapi.domain.bo.UserBO">
         select
         <include refid="base_column"></include>
-        from admin
+        from biz_user
         <include refid="pageWhereSql"></include>
         order by id
         limit #{page},#{pageSize}
