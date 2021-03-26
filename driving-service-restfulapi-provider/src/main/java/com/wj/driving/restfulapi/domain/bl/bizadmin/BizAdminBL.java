@@ -28,13 +28,13 @@ import java.util.stream.Collectors;
 public class BizAdminBL {
 
     @Autowired
-    private AdminMapper userMapper;
+    private AdminMapper adminMapper;
 
 
     public PageResult<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
         PageResult<AdminDetailsDTO> result = new PageResult();
-        int totalCount = userMapper.countAdmin(request);
-        List<AdminBO> adminBOList = userMapper.selectPage(request);
+        int totalCount = adminMapper.countAdmin(request);
+        List<AdminBO> adminBOList = adminMapper.selectPage(request);
         if(totalCount>0){
             List<AdminDetailsDTO> dtoList = adminBOList.stream().map(item -> {
                 AdminDetailsDTO adminDTO = new AdminDetailsDTO();
@@ -67,7 +67,7 @@ public class BizAdminBL {
         adminBO.setIdCard(adminDTO.getIdCard());
         adminBO.setPassword(adminDTO.getPassword());
         adminBO.setAuth(adminDTO.getAuth());
-        return userMapper.insert(adminBO);
+        return adminMapper.insert(adminBO);
     }
 
 
@@ -82,22 +82,22 @@ public class BizAdminBL {
         adminBO.setPassword(adminDTO.getPassword());
         adminBO.setAuth(adminDTO.getAuth());
         adminDTO.setAuthName(AuthEnum.getSourceType(adminBO.getAuth()));
-        return userMapper.updateById(adminBO);
+        return adminMapper.updateById(adminBO);
     }
 
     public int updateAdminPWD(AdminDetailsDTO adminDTO,String newPWD){
         QueryWrapper<AdminBO> wrapper = new QueryWrapper<>();
         wrapper.eq("id",adminDTO.getId())
                 .eq("password",adminDTO.getPassword());
-        AdminBO adminBO = userMapper.selectOne(wrapper);
+        AdminBO adminBO = adminMapper.selectOne(wrapper);
         if(adminBO!=null){
             adminBO.setPassword(newPWD);
-            return userMapper.updateById(adminBO);
+            return adminMapper.updateById(adminBO);
         }
         return 0;
     }
 
     public int deleteAdmin(Long id){
-        return userMapper.deleteById(id);
+        return adminMapper.deleteById(id);
     }
 }

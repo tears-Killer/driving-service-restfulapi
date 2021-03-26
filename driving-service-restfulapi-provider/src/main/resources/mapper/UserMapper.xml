@@ -6,6 +6,10 @@
     <sql id="base_column">
         id,name,nickname,sex,mobile_no,id_card,address_id,state,create_time,last_update_time
     </sql>
+    <insert id="insert">
+        insert into 表名(name,age)
+        values(#{studentname},#{age})
+    </insert>
 
     <select id="selectPage" resultType="com.wj.driving.restfulapi.domain.bo.UserBO">
         select
