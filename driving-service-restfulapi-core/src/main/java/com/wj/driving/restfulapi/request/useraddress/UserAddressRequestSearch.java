@@ -1,43 +1,62 @@
-package com.wj.driving.restfulapi.domain.bo;
+/**
+ * Copyright 2017 武汉易酒批电子商务有限公司. All rights reserved.
+ */
+package com.wj.driving.restfulapi.request.useraddress;
 
-import java.util.Date;
+/**
+ * @ClassName UserAddressRequestSearch
+ * @Description 目的地管理分页查询条件
+ * @Author wangjian
+ * @Date 2021/4/1 11:15
+ */
+public class UserAddressRequestSearch {
 
-public class AddressBO {
+    /**
+     * 客户名称
+     */
+    private String userName;
 
-    private Long id;
-
-    private Long userId;
-
+    /**
+     * 目的地-省
+     */
     private String province;
 
+    /**
+     * 目的地-市
+     */
     private String city;
 
+    /**
+     * 目的地-区域
+     */
     private String county;
 
+    /**
+     * 目的地-街道
+     */
     private String street;
 
+    /**
+     * 目的地-详细地址
+     */
     private String detailAddress;
 
-    private Integer state;
+    /**
+     * 创建时间
+     */
+    private String createTime;
 
-    private Date createTime;
+    /**
+     * 最后修改时间
+     */
+    private String lastUpdateTime;
 
-    private Date lastUpdateTime;
-
-    public Long getId() {
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getProvince() {
@@ -80,27 +99,19 @@ public class AddressBO {
         this.detailAddress = detailAddress;
     }
 
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getLastUpdateTime() {
+    public String getLastUpdateTime() {
         return lastUpdateTime;
     }
 
-    public void setLastUpdateTime(Date lastUpdateTime) {
+    public void setLastUpdateTime(String lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
     }
 }

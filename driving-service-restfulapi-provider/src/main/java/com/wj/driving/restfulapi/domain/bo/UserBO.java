@@ -113,20 +113,4 @@ public class UserBO {
     public void setLastUpdateTime(Date lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
     }
-
-    @Override
-    public String toString() {
-        return "UserBO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", mobileNo='" + mobileNo + '\'' +
-                ", addressId=" + addressId +
-                ", idCard=" + idCard +
-                ", state=" + state +
-                ", createTime=" + createTime +
-                ", lastUpdateTime=" + lastUpdateTime +
-                '}';
-    }
 }

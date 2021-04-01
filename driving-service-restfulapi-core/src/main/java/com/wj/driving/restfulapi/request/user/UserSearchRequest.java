@@ -57,7 +57,7 @@ public class UserSearchRequest implements Serializable {
     }
 
     public Integer getPageSize() {
-        return pageSize>0 ? 10:pageSize;
+        return pageSize<0 ? 10:pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
