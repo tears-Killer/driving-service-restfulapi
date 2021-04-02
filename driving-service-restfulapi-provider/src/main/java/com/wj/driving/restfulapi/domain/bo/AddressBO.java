@@ -1,8 +1,9 @@
 package com.wj.driving.restfulapi.domain.bo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class AddressBO {
+public class AddressBO implements Serializable {
 
     private Long id;
 

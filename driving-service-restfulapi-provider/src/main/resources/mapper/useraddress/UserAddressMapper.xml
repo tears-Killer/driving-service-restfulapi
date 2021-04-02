@@ -3,6 +3,67 @@
 <mapper namespace="com.wj.driving.restfulapi.domain.mapper.useraddress.UserAddressMapper">
     <!--基础字段-->
     <sql id="base_column">
-        id,userId,province,city,county,street,detail,state,create_time,last_update_time
+        address.id,address.user_id,user.name,address.province,address.city,address.county,address.street,address.detail_address,address.state,address.create_time,address.last_update_time
+    </sql>
+
+    <resultMap id="BaseMap" type="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        <result column="id" property="id"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="county" property="county"/>
+        <result column="street" property="street"/>
+        <result column="detail_address" property="detailAddress"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+        <result column="name" property="userName"/>
+    </resultMap>
+
+    <select id="getDefaultAddressList" resultMap="BaseMap">
+        select
+        <include refid="base_column"></include>
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        <include refid="pageWhereSql"></include>
+        and address.state = 0
+        order by address.id
+        limit #{page},#{pageSize}
+    </select>
+
+    <select id="countPage" resultType="java.lang.Integer">
+        select count(1)
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        <include refid="pageWhereSql"></include>
+        and address.state = 0
+        order by address.id
+    </select>
+
+    <sql id="pageWhereSql">
+        <where>
+            <if test="userName != null and userName != ''">
+                AND name like concat(trim(#{userName}),'%')
+            </if>
+            <if test="province != null and province != ''">
+                AND province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                AND city = #{city}
+            </if>
+            <if test="county != null and county != ''">
+                AND county = #{county}
+            </if>
+            <if test="street != null and street != ''">
+                AND street = #{street}
+            </if>
+            <if test="detailAddress != null and detailAddress != ''">
+                AND detail_address = #{detailAddress}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                AND create_time = #{createTime}
+            </if>
+            <if test="lastUpdateTime != null and lastUpdateTime != ''">
+                AND last_update_time = #{lastUpdateTime}
+            </if>
+        </where>
     </sql>
 </mapper>

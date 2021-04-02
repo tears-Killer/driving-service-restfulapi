@@ -5,6 +5,8 @@ package com.wj.driving.restfulapi.domain.mapper.useraddress;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wj.driving.restfulapi.domain.bo.AddressBO;
+import com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO;
+import com.wj.driving.restfulapi.request.useraddress.UserAddressRequestSearch;
 
 import java.util.List;
 
@@ -16,5 +18,7 @@ import java.util.List;
  */
 public interface UserAddressMapper extends BaseMapper<AddressBO> {
 
-    List<AddressBO> getDefaultAddressList(AddressBO addressBO);
+    int countPage(UserAddressRequestSearch request);
+
+    List<UserAddressDTO> getDefaultAddressList(UserAddressRequestSearch request);
 }

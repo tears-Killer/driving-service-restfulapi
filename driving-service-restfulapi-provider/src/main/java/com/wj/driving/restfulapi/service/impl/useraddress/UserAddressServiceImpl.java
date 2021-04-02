@@ -3,10 +3,13 @@
  */
 package com.wj.driving.restfulapi.service.impl.useraddress;
 
+import com.alibaba.dubbo.config.annotation.Service;
+import com.wj.driving.restfulapi.domain.bl.useraddress.UserAddressBL;
 import com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO;
 import com.wj.driving.restfulapi.request.useraddress.UserAddressRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.service.useraddress.IUserAddressService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @ClassName UserAddressServiceImpl
@@ -14,7 +17,11 @@ import com.wj.driving.restfulapi.service.useraddress.IUserAddressService;
  * @Author wangjian
  * @Date 2021/4/1 11:22
  */
+@Service
 public class UserAddressServiceImpl implements IUserAddressService {
+
+    @Autowired
+    private UserAddressBL userAddressBL;
 
     /**
      *查询客户默认目的地列表分页
@@ -23,6 +30,6 @@ public class UserAddressServiceImpl implements IUserAddressService {
      */
     @Override
     public PageResult<UserAddressDTO> selectPage(UserAddressRequestSearch request) {
-        return null;
+        return userAddressBL.getUserAddressList(request);
     }
 }

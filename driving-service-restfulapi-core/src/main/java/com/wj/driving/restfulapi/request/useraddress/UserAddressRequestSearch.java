@@ -3,13 +3,15 @@
  */
 package com.wj.driving.restfulapi.request.useraddress;
 
+import java.io.Serializable;
+
 /**
  * @ClassName UserAddressRequestSearch
  * @Description 目的地管理分页查询条件
  * @Author wangjian
  * @Date 2021/4/1 11:15
  */
-public class UserAddressRequestSearch {
+public class UserAddressRequestSearch implements Serializable {
 
     /**
      * 客户名称
@@ -50,6 +52,16 @@ public class UserAddressRequestSearch {
      * 最后修改时间
      */
     private String lastUpdateTime;
+
+    /**
+     * 当前页
+     */
+    private Integer page;
+
+    /**
+     * 每页条数
+     */
+    private Integer pageSize;
 
     public String getUserName() {
         return userName;
@@ -113,5 +125,21 @@ public class UserAddressRequestSearch {
 
     public void setLastUpdateTime(String lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Integer getPage() {
+        return page == null ? 0:(page-1)*getPageSize();
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize == null ? 10:pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 }

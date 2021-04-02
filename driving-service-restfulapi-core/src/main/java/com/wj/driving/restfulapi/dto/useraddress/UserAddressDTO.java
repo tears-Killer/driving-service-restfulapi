@@ -3,13 +3,15 @@
  */
 package com.wj.driving.restfulapi.dto.useraddress;
 
+import java.io.Serializable;
+
 /**
  * @ClassName UserAddressDTO
  * @Description 客户地址视图
  * @Author wangjian
  * @Date 2021/4/1 10:58
  */
-public class UserAddressDTO {
+public class UserAddressDTO implements Serializable {
 
     /**
      * 地址id

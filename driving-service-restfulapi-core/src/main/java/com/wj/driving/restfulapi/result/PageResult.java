@@ -1,7 +1,5 @@
 package com.wj.driving.restfulapi.result;
 
-import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
-
 import java.io.Serializable;
 import java.util.List;
 

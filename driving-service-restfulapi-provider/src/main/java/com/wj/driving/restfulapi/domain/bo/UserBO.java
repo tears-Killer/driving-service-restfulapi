@@ -2,6 +2,7 @@ package com.wj.driving.restfulapi.domain.bo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  */
 
 @TableName("biz_user" )
-public class UserBO {
+public class UserBO implements Serializable {
 
     private Long id;
 
