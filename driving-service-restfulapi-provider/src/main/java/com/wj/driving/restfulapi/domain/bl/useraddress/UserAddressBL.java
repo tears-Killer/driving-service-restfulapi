@@ -26,6 +26,7 @@ public class UserAddressBL {
     private UserAddressMapper userAddressMapper;
 
     public PageResult<UserAddressDTO> getUserAddressList(UserAddressRequestSearch request){
+        request.setState("0");
         PageResult<UserAddressDTO> result = new PageResult<>();
         Integer totalCount = userAddressMapper.countPage(request);
         List<UserAddressDTO> defaultAddressList = userAddressMapper.getDefaultAddressList(request);

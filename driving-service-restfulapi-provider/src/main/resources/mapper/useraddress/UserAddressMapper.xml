@@ -35,35 +35,37 @@
         from user_address address
         left join biz_user user on address.user_id = user.id
         <include refid="pageWhereSql"></include>
-        and address.state = 0
         order by address.id
     </select>
 
     <sql id="pageWhereSql">
         <where>
             <if test="userName != null and userName != ''">
-                AND name like concat(trim(#{userName}),'%')
+                AND user.name like concat(trim(#{userName}),'%')
             </if>
             <if test="province != null and province != ''">
-                AND province = #{province}
+                AND address.province = #{province}
             </if>
             <if test="city != null and city != ''">
-                AND city = #{city}
+                AND address.city = #{city}
             </if>
             <if test="county != null and county != ''">
-                AND county = #{county}
+                AND address.county = #{county}
             </if>
             <if test="street != null and street != ''">
-                AND street = #{street}
+                AND address.street = #{street}
+            </if>
+            <if test="state != null">
+                AND address.state = #{state}
             </if>
             <if test="detailAddress != null and detailAddress != ''">
-                AND detail_address = #{detailAddress}
+                AND address.detail_address = #{detailAddress}
             </if>
             <if test="createTime != null and createTime != ''">
-                AND create_time = #{createTime}
+                AND address.create_time = #{createTime}
             </if>
             <if test="lastUpdateTime != null and lastUpdateTime != ''">
-                AND last_update_time = #{lastUpdateTime}
+                AND address.last_update_time = #{lastUpdateTime}
             </if>
         </where>
     </sql>

@@ -20,3 +20,5 @@ public interface AdminMapper extends BaseMapper<AdminBO> {
 
     int countAdmin(AdminSearchRequest request);
 }
+
+

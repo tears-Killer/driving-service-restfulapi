@@ -44,6 +44,10 @@ public class UserAddressRequestSearch implements Serializable {
     private String detailAddress;
 
     /**
+     * 目的地地址状态
+     */
+    private String state;
+    /**
      * 创建时间
      */
     private String createTime;
@@ -109,6 +113,14 @@ public class UserAddressRequestSearch implements Serializable {
 
     public void setDetailAddress(String detailAddress) {
         this.detailAddress = detailAddress;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getCreateTime() {
