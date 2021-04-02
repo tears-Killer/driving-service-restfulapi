@@ -25,7 +25,6 @@
         from user_address address
         left join biz_user user on address.user_id = user.id
         <include refid="pageWhereSql"></include>
-        and address.state = 0
         order by address.id
         limit #{page},#{pageSize}
     </select>
