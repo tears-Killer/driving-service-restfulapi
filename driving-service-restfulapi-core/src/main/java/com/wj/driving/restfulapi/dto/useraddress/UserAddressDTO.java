@@ -19,6 +19,11 @@ public class UserAddressDTO implements Serializable {
     private Long id;
 
     /**
+     * 客户id
+     */
+    private Long userId;
+
+    /**
      * 客户名称
      */
     private String userName;
@@ -64,6 +69,14 @@ public class UserAddressDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -134,6 +147,7 @@ public class UserAddressDTO implements Serializable {
     public String toString() {
         return "UserAddressDTO{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +

@@ -8,6 +8,7 @@
 
     <resultMap id="BaseMap" type="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
         <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
         <result column="province" property="province"/>
         <result column="city" property="city"/>
         <result column="county" property="county"/>
