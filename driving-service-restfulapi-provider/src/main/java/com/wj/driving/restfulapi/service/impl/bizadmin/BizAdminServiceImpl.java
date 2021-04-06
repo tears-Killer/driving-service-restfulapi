@@ -11,8 +11,6 @@ import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.service.bizadmin.BizAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 /**
  * @ClassName BizAdminService
  * @Description TODO

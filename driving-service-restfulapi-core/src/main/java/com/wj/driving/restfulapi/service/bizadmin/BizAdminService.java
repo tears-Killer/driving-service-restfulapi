@@ -4,8 +4,6 @@ import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
 import com.wj.driving.restfulapi.result.PageResult;
 
-import java.util.List;
-
 /**
  * @ClassName BizAdminService
  * @Description

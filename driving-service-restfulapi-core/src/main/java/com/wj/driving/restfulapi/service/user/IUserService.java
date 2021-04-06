@@ -4,8 +4,6 @@ import com.wj.driving.restfulapi.dto.user.UserDTO;
 import com.wj.driving.restfulapi.request.user.UserSearchRequest;
 import com.wj.driving.restfulapi.result.PageResult;
 
-import java.util.List;
-
 public interface IUserService {
     /**
      * 获取所有用户

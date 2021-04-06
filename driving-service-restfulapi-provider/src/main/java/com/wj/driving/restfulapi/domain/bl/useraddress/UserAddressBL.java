@@ -7,7 +7,6 @@ import com.wj.driving.restfulapi.domain.mapper.useraddress.UserAddressMapper;
 import com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO;
 import com.wj.driving.restfulapi.request.useraddress.UserAddressRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
