@@ -21,4 +21,6 @@ public interface UserAddressMapper extends BaseMapper<AddressBO> {
     int countPage(UserAddressRequestSearch request);
 
     List<UserAddressDTO> getDefaultAddressList(UserAddressRequestSearch request);
+
+    List<UserAddressDTO> getCommonlyAddressListByUserId(Long userId);
 }

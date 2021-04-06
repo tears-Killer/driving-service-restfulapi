@@ -22,4 +22,11 @@ public interface IUserAddressService {
      * @return
      */
     PageResult<UserAddressDTO> selectPage(UserAddressRequestSearch request);
+
+    /**
+     * 根据客户Id查询客户的常用目的地
+     * @param userAddressDTO
+     * @return
+     */
+    List<UserAddressDTO> getcommonlyAddressList(UserAddressDTO userAddressDTO);
 }

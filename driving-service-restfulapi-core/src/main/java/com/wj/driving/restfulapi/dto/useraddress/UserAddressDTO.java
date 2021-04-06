@@ -29,6 +29,11 @@ public class UserAddressDTO implements Serializable {
     private String userName;
 
     /**
+     * 目的地地址状态
+     */
+    private String state;
+
+    /**
      * 目的地-省
      */
     private String province;
@@ -85,6 +90,14 @@ public class UserAddressDTO implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getProvince() {
@@ -149,6 +162,7 @@ public class UserAddressDTO implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", userName='" + userName + '\'' +
+                ", state='" + state + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", county='" + county + '\'' +

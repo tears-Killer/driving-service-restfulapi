@@ -34,4 +34,8 @@ public class UserAddressBL {
         result.setList(defaultAddressList);
         return result;
     }
+
+    public List<UserAddressDTO> getCommonlyAddressList(UserAddressDTO userAddressDTO){
+        return userAddressMapper.getCommonlyAddressListByUserId(userAddressDTO.getUserId());
+    }
 }

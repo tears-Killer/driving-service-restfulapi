@@ -37,6 +37,15 @@
         order by address.id
     </select>
 
+    <select id="getCommonlyAddressListByUserId" resultMap="BaseMap">
+        select
+        <include refid="base_column"></include>
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        where address.state = 1 and address.user_id = #{userId}
+        order by address.id
+    </select>
+
     <sql id="pageWhereSql">
         <where>
             <if test="userName != null and userName != ''">

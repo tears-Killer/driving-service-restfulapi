@@ -11,6 +11,8 @@ import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.service.useraddress.IUserAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
  * @ClassName UserAddressServiceImpl
  * @Description 目的地管理
@@ -31,5 +33,10 @@ public class UserAddressServiceImpl implements IUserAddressService {
     @Override
     public PageResult<UserAddressDTO> selectPage(UserAddressRequestSearch request) {
         return userAddressBL.getUserAddressList(request);
+    }
+
+    @Override
+    public List<UserAddressDTO> getcommonlyAddressList(UserAddressDTO userAddressDTO) {
+        return userAddressBL.getCommonlyAddressList(userAddressDTO);
     }
 }
