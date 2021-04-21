@@ -1,7 +1,5 @@
 package com.wj.driving.restfulapi.enums.userorder;
 
-import com.wj.driving.restfulapi.enums.user.UserStatusEnum;
-
 /**
  * <p>
  *  订单状态

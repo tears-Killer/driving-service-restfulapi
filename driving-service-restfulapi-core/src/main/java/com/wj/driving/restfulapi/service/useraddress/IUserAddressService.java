@@ -29,4 +29,16 @@ public interface IUserAddressService {
      * @return
      */
     List<UserAddressDTO> getcommonlyAddressList(UserAddressDTO userAddressDTO);
+
+    /**
+     * 将地址设为默认地址
+     * @param userAddressDTO
+     */
+    void setDefaultAddress(UserAddressDTO userAddressDTO);
+
+    /**
+     * 删除地址
+     * @param userAddressDTO
+     */
+    void deleteAddress(UserAddressDTO userAddressDTO);
 }

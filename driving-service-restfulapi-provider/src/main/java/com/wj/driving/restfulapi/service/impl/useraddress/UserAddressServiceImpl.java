@@ -35,8 +35,31 @@ public class UserAddressServiceImpl implements IUserAddressService {
         return userAddressBL.getUserAddressList(request);
     }
 
+    /**
+     * 根据客户Id查询客户的常用目的地
+     * @param userAddressDTO
+     * @return
+     */
     @Override
     public List<UserAddressDTO> getcommonlyAddressList(UserAddressDTO userAddressDTO) {
         return userAddressBL.getCommonlyAddressList(userAddressDTO);
+    }
+
+    /**
+     * 将地址设为默认地址
+     * @param userAddressDTO
+     */
+    @Override
+    public void setDefaultAddress(UserAddressDTO userAddressDTO) {
+        userAddressBL.setDefaultAddress(userAddressDTO);
+    }
+
+    /**
+     * 删除地址
+     * @param userAddressDTO
+     */
+    @Override
+    public void deleteAddress(UserAddressDTO userAddressDTO) {
+        userAddressBL.deleteAddress(userAddressDTO);
     }
 }

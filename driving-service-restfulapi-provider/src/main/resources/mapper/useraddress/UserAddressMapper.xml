@@ -19,6 +19,24 @@
         <result column="name" property="userName"/>
     </resultMap>
 
+    <update id="updateAddressState" parameterType="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        update user_address
+        <set>
+            <if test="state != null">
+                state = #{state}
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteAddress" parameterType="java.lang.Long">
+        delete from user_address where id = #{id}
+    </delete>
+
     <select id="getDefaultAddressList" resultMap="BaseMap">
         select
         <include refid="base_column"></include>
@@ -43,7 +61,31 @@
         from user_address address
         left join biz_user user on address.user_id = user.id
         where address.state = 1 and address.user_id = #{userId}
-        order by address.id
+        order by address.count desc
+        limit 0,5
+    </select>
+
+    <select id="getDefaultAddressId" resultType="java.lang.Long">
+        select id
+        from user_address
+        where user_id = #{userId}
+          and state = 0
+    </select>
+
+    <select id="getCommonAddressTopUse" resultType="java.lang.Long">
+        select id
+        from user_address
+        where user_id = #{userId}
+        and state = 1
+        order by address.count desc
+        limit 0,1
+    </select>
+
+    <select id="getAddressDetailById" resultType="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        select
+        <include refid="base_column"></include>
+        from user_address
+        where id = #{id}
     </select>
 
     <sql id="pageWhereSql">
@@ -68,12 +110,6 @@
             </if>
             <if test="detailAddress != null and detailAddress != ''">
                 AND address.detail_address = #{detailAddress}
-            </if>
-            <if test="createTime != null and createTime != ''">
-                AND address.create_time = #{createTime}
-            </if>
-            <if test="lastUpdateTime != null and lastUpdateTime != ''">
-                AND address.last_update_time = #{lastUpdateTime}
             </if>
         </where>
     </sql>

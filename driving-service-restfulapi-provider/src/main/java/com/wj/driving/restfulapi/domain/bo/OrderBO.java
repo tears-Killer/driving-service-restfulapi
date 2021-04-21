@@ -45,6 +45,11 @@ public class OrderBO implements Serializable {
      * 订单状态
      */
     private Integer state;
+
+    /**
+     * 订单金额
+     */
+    private Double amount;
     /**
      * 订单创建时间
      */
@@ -116,6 +121,14 @@ public class OrderBO implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public Date getCreateTime() {

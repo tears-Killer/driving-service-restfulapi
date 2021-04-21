@@ -1,22 +1,18 @@
-package com.wj.driving.restfulapi.dto.userorder;
+package com.wj.driving.restfulapi.request.userorder;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * <p>
- *  订单详情
+ *  订单搜索条件
  * </p>
  *
  * @author wangjian
- * @since 2021/4/20
+ * @since 2021/4/21
  */
-public class OrderDetailsDTO implements Serializable {
+public class UserOrderRequestSearch implements Serializable {
 
-    /**
-     * 主键id
-     */
-    private Long id;
     /**
      * 订单编号
      */
@@ -48,31 +44,33 @@ public class OrderDetailsDTO implements Serializable {
     /**
      * 订单状态
      */
-    private Integer state;
+    private String state;
     /**
-     * 订单状态
+     * 订单金额-最低值
      */
-    private String stateName;
+    private Double minAmount;
     /**
-     * 订单金额
+     * 订单金额-最大值
      */
-    private Double amount;
+    private Double maxAmount;
     /**
      * 订单创建时间
      */
-    private Date createTime;
+    private Date beginTime;
     /**
      * 订单最后更新时间
      */
-    private Date lastUpdateTime;
+    private Date endTime;
 
-    public Long getId() {
-        return id;
-    }
+    /**
+     * 当前页
+     */
+    private Integer page;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    /**
+     * 每页条数
+     */
+    private Integer pageSize;
 
     public Long getOrderNo() {
         return orderNo;
@@ -130,43 +128,59 @@ public class OrderDetailsDTO implements Serializable {
         this.street = street;
     }
 
-    public Integer getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(Integer state) {
+    public void setState(String state) {
         this.state = state;
     }
 
-    public String getStateName() {
-        return stateName;
+    public Double getMinAmount() {
+        return minAmount;
     }
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setMinAmount(Double minAmount) {
+        this.minAmount = minAmount;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getMaxAmount() {
+        return maxAmount;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setMaxAmount(Double maxAmount) {
+        this.maxAmount = maxAmount;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getBeginTime() {
+        return beginTime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setBeginTime(Date beginTime) {
+        this.beginTime = beginTime;
     }
 
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 }

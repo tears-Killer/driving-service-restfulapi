@@ -1,6 +1,7 @@
 package com.wj.driving.restfulapi.service.userorder;
 
 import com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO;
+import com.wj.driving.restfulapi.request.userorder.UserOrderRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 
 /**
@@ -13,5 +14,10 @@ import com.wj.driving.restfulapi.result.PageResult;
  */
 public interface UserOrderService {
 
-    PageResult<OrderDetailsDTO> selectPage();
+    /**
+     * 订单分页查询
+     * @param request
+     * @return
+     */
+    PageResult<OrderDetailsDTO> selectPage(UserOrderRequestSearch request);
 }

@@ -23,4 +23,14 @@ public interface UserAddressMapper extends BaseMapper<AddressBO> {
     List<UserAddressDTO> getDefaultAddressList(UserAddressRequestSearch request);
 
     List<UserAddressDTO> getCommonlyAddressListByUserId(Long userId);
+
+    Long getDefaultAddressId(Long userId);
+
+    UserAddressDTO getAddressDetailById(Long id);
+
+    void updateAddressState(UserAddressDTO userAddressDTO);
+
+    void deleteAddress(Long id);
+
+    Long getCommonAddressTopUse(Long userId);
 }

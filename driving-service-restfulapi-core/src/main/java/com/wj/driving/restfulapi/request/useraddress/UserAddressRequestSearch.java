@@ -47,15 +47,6 @@ public class UserAddressRequestSearch implements Serializable {
      * 目的地地址状态
      */
     private String state;
-    /**
-     * 创建时间
-     */
-    private String createTime;
-
-    /**
-     * 最后修改时间
-     */
-    private String lastUpdateTime;
 
     /**
      * 当前页
@@ -121,22 +112,6 @@ public class UserAddressRequestSearch implements Serializable {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getLastUpdateTime() {
-        return lastUpdateTime;
-    }
-
-    public void setLastUpdateTime(String lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
     }
 
     public Integer getPage() {

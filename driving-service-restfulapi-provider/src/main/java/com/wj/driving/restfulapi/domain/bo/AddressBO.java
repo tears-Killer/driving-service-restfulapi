@@ -21,6 +21,8 @@ public class AddressBO implements Serializable {
 
     private Integer state;
 
+    private Integer count;
+
     private Date createTime;
 
     private Date lastUpdateTime;
@@ -79,6 +81,14 @@ public class AddressBO implements Serializable {
 
     public void setDetailAddress(String detailAddress) {
         this.detailAddress = detailAddress;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public Integer getState() {
