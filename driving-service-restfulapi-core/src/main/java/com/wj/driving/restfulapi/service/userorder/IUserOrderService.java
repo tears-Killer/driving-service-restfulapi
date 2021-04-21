@@ -12,7 +12,7 @@ import com.wj.driving.restfulapi.result.PageResult;
  * @author wangjian
  * @since 2021/4/20
  */
-public interface UserOrderService {
+public interface IUserOrderService {
 
     /**
      * 订单分页查询

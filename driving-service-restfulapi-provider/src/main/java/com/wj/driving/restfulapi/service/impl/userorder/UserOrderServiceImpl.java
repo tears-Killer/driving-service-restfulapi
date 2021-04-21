@@ -5,7 +5,7 @@ import com.wj.driving.restfulapi.domain.bl.userorder.UserOrderBL;
 import com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO;
 import com.wj.driving.restfulapi.request.userorder.UserOrderRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
-import com.wj.driving.restfulapi.service.userorder.UserOrderService;
+import com.wj.driving.restfulapi.service.userorder.IUserOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @since 2021/4/21
  */
 @Service
-public class UserOrderServiceImpl implements UserOrderService {
+public class UserOrderServiceImpl implements IUserOrderService {
 
     @Autowired
     private UserOrderBL userOrderBL;
