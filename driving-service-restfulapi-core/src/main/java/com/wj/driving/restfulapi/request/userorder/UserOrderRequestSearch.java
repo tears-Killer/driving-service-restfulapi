@@ -169,7 +169,7 @@ public class UserOrderRequestSearch implements Serializable {
     }
 
     public Integer getPage() {
-        return page;
+        return page == null ? 0:(page-1)*getPageSize();
     }
 
     public void setPage(Integer page) {
@@ -177,7 +177,7 @@ public class UserOrderRequestSearch implements Serializable {
     }
 
     public Integer getPageSize() {
-        return pageSize;
+        return pageSize<0 ? 10:pageSize;
     }
 
     public void setPageSize(Integer pageSize) {

@@ -123,7 +123,7 @@ public class UserAddressRequestSearch implements Serializable {
     }
 
     public Integer getPageSize() {
-        return pageSize == null ? 10:pageSize;
+        return pageSize<0 ? 10:pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
