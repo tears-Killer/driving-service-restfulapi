@@ -1,6 +1,3 @@
-/**
- * Copyright 2017 武汉易酒批电子商务有限公司. All rights reserved.
- */
 package com.wj.driving.restfulapi.request.admin;
 
 import java.io.Serializable;
@@ -11,7 +8,7 @@ import java.io.Serializable;
  * @Author wangjian
  * @Date 2021/3/23 13:58
  */
-public class AdminSearchRequest implements Serializable {
+public class AdminRequestSearch implements Serializable {
 
     private String name;
 

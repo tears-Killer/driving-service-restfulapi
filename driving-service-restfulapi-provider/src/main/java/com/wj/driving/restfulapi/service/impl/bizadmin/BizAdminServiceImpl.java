@@ -6,7 +6,7 @@ package com.wj.driving.restfulapi.service.impl.bizadmin;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wj.driving.restfulapi.domain.bl.bizadmin.BizAdminBL;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
-import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
+import com.wj.driving.restfulapi.request.admin.AdminRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.service.bizadmin.BizAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class BizAdminServiceImpl implements BizAdminService {
     private BizAdminBL bizAdminBL;
 
     @Override
-    public PageResult<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+    public PageResult<AdminDetailsDTO> getAllAdmin(AdminRequestSearch request) {
         return bizAdminBL.getAllAdmin(request);
     }
 

@@ -2,7 +2,7 @@ package com.wj.driving.restfulapi.request.user;
 
 import java.io.Serializable;
 
-public class UserSearchRequest implements Serializable {
+public class UserRequestSearch implements Serializable {
 
     private String name;
 

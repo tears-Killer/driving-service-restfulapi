@@ -4,7 +4,7 @@ import com.wj.driving.restfulapi.domain.bo.UserBO;
 import com.wj.driving.restfulapi.domain.mapper.user.UserMapper;
 import com.wj.driving.restfulapi.dto.user.UserDTO;
 import com.wj.driving.restfulapi.enums.user.UserStatusEnum;
-import com.wj.driving.restfulapi.request.user.UserSearchRequest;
+import com.wj.driving.restfulapi.request.user.UserRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +21,7 @@ public class UserServiceBL {
     @Autowired
     private UserMapper userMapper;
 
-    public PageResult<UserDTO> getUserList(UserSearchRequest request){
+    public PageResult<UserDTO> getUserList(UserRequestSearch request){
         PageResult<UserDTO> result = new PageResult<>();
         int totalCount = userMapper.countUser(request);
         List<UserBO> userBOList = userMapper.selectPage(request);

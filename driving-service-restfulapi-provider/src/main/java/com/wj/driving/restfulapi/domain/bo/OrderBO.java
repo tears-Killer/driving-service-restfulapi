@@ -26,6 +26,10 @@ public class OrderBO implements Serializable {
      */
     private Long userId;
     /**
+     * 代驾人员id
+     */
+    private Long driverId;
+    /**
      * 目的地-省
      */
     private String province;
@@ -81,6 +85,14 @@ public class OrderBO implements Serializable {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
     }
 
     public String getProvince() {

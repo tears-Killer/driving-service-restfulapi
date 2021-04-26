@@ -8,7 +8,7 @@ import com.wj.driving.restfulapi.domain.bo.AdminBO;
 import com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
 import com.wj.driving.restfulapi.enums.admin.AuthEnum;
-import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
+import com.wj.driving.restfulapi.request.admin.AdminRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
@@ -31,7 +31,7 @@ public class BizAdminBL {
     private AdminMapper adminMapper;
 
 
-    public PageResult<AdminDetailsDTO> getAllAdmin(AdminSearchRequest request) {
+    public PageResult<AdminDetailsDTO> getAllAdmin(AdminRequestSearch request) {
         PageResult<AdminDetailsDTO> result = new PageResult();
         int totalCount = adminMapper.countAdmin(request);
         List<AdminBO> adminBOList = adminMapper.selectPage(request);

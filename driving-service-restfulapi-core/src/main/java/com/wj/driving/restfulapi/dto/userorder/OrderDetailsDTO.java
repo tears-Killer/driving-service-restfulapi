@@ -46,6 +46,10 @@ public class OrderDetailsDTO implements Serializable {
      */
     private String street;
     /**
+     * 代驾人员名称
+     */
+    private String driverName;
+    /**
      * 订单状态
      */
     private Integer state;
@@ -128,6 +132,14 @@ public class OrderDetailsDTO implements Serializable {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 
     public Integer getState() {

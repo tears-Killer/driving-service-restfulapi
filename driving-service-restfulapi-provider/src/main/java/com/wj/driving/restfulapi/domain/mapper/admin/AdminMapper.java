@@ -2,7 +2,7 @@ package com.wj.driving.restfulapi.domain.mapper.admin;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wj.driving.restfulapi.domain.bo.AdminBO;
-import com.wj.driving.restfulapi.request.admin.AdminSearchRequest;
+import com.wj.driving.restfulapi.request.admin.AdminRequestSearch;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.List;
 @Repository
 public interface AdminMapper extends BaseMapper<AdminBO> {
 
-    List<AdminBO> selectPage(AdminSearchRequest request);
+    List<AdminBO> selectPage(AdminRequestSearch request);
 
-    int countAdmin(AdminSearchRequest request);
+    int countAdmin(AdminRequestSearch request);
 }
 
 
