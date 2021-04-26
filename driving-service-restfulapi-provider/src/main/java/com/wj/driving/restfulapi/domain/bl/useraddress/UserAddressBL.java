@@ -30,12 +30,14 @@ public class UserAddressBL {
         request.setState("0");
         PageResult<UserAddressDTO> result = new PageResult<>();
         Integer totalCount = userAddressMapper.countPage(request);
-        List<UserAddressDTO> defaultAddressList = userAddressMapper.getDefaultAddressList(request);
-        defaultAddressList.forEach(userAddressDTO -> {
-            userAddressDTO.setStateName(UserAddressStateEnum.getSourceType(userAddressDTO.getState()));
-        });
-        result.setTotalCount(totalCount);
-        result.setList(defaultAddressList);
+        if(totalCount>0){
+            List<UserAddressDTO> defaultAddressList = userAddressMapper.getDefaultAddressList(request);
+            defaultAddressList.forEach(userAddressDTO -> {
+                userAddressDTO.setStateName(UserAddressStateEnum.getSourceType(userAddressDTO.getState()));
+            });
+            result.setTotalCount(totalCount);
+            result.setList(defaultAddressList);
+        }
         return result;
     }
 

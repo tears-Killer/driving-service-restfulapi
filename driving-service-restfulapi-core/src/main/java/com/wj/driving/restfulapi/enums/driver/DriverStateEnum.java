@@ -1,5 +1,7 @@
 package com.wj.driving.restfulapi.enums.driver;
 
+import com.wj.driving.restfulapi.enums.useraddress.UserAddressStateEnum;
+
 /**
  * <p>
  *  代驾状态
@@ -20,5 +22,14 @@ public enum DriverStateEnum {
     DriverStateEnum(Integer value, String driverState) {
         this.value = value;
         this.driverState = driverState;
+    }
+
+    public static String getSourceType(Integer state) {
+        for (DriverStateEnum ele : values()) {
+            if(ele.value.equals(state)){
+                return ele.driverState;
+            }
+        }
+        return null;
     }
 }

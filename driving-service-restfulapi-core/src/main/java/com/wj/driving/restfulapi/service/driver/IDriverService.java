@@ -15,7 +15,8 @@ import com.wj.driving.restfulapi.result.PageResult;
 public interface IDriverService {
 
     /**
-     * 代价人员列表
+     * 获取代驾人员列表
+     * @param request
      * @return
      */
     PageResult<DriverDetailsDTO> selectPage(DriverRequestSearch request);

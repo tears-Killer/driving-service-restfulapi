@@ -7,7 +7,7 @@
         id,name,nickname,sex,mobile_no,id_card,address_id,state,create_time,last_update_time
     </sql>
     <insert id="insert">
-        insert into 表名(name,age)
+        insert into biz_user(name,age)
         values(#{studentname},#{age})
     </insert>
 

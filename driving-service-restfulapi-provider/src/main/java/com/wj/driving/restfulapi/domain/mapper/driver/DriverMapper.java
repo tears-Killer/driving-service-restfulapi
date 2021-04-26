@@ -18,4 +18,8 @@ public interface DriverMapper {
     int countPage(DriverRequestSearch requestSearch);
 
     List<DriverBO> getDriverDetailsList(DriverRequestSearch requestSearch);
+
+    int insertDriver(DriverBO driverBO);
+
+    int updateDriver(DriverBO driverBO);
 }
