@@ -28,6 +28,14 @@ public class DriverRequestSearch implements Serializable {
      * 状态
      */
     private Integer state;
+    /**
+     * 当前页
+     */
+    private Integer page;
+    /**
+     * 每页条数
+     */
+    private Integer pageSize;
 
     public String getName() {
         return name;
@@ -59,5 +67,21 @@ public class DriverRequestSearch implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getPage() {
+        return page == null ? 0:(page-1)*getPageSize();
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize<0 ? 10:pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 }

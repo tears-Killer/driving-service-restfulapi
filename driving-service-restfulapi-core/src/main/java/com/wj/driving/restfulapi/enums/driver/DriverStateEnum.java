@@ -1,7 +1,5 @@
 package com.wj.driving.restfulapi.enums.driver;
 
-import com.wj.driving.restfulapi.enums.useraddress.UserAddressStateEnum;
-
 /**
  * <p>
  *  代驾状态

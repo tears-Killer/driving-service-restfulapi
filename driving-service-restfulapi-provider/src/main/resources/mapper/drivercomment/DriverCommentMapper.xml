@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.drivercomment.DriverCommentMapper">
+
+    <sql id="base_colum">
+        id,driverId,userId,orderId,comments,score,createTime,lastUpdateTime
+    </sql>
+
+    <select id="getAllCommentsById" resultType="com.wj.driving.restfulapi.domain.bo.DriverCommentBO">
+        select
+        <include refid="base_colum"></include>
+        from driver_comment
+        where driverId = #{driverId}
+    </select>
+
+</mapper>

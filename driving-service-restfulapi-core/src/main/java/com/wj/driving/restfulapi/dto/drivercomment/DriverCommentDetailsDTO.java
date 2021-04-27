@@ -1,52 +1,40 @@
-package com.wj.driving.restfulapi.domain.bo;
+package com.wj.driving.restfulapi.dto.drivercomment;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * <p>
- *  代驾评价实体
+ *  代驾评价返回参数
  * </p>
  *
  * @author wangjian
- * @since 2021/4/23
+ * @since 2021/4/27
  */
-public class DriverCommentBO implements Serializable {
+public class DriverCommentDetailsDTO implements Serializable {
 
     /**
      * 主键id
      */
     private Long id;
     /**
-     * 代驾id
+     * 评价人昵称
      */
-    private Long driverId;
+    private String nicname;
     /**
-     * 用户id
-     */
-    private Long userId;
-    /**
-     * 订单id
-     */
-    private Long orderId;
-    /**
-     * 用户评价
+     * 评价内容
      */
     private String comments;
     /**
-     * 用户评分
+     * 评价分数
      */
     private Integer score;
-
     /**
      * 创建时间
-     * @return
      */
     private Date createTime;
-
     /**
      * 最后更新时间
-     * @return
      */
     private Date lastUpdateTime;
 
@@ -58,28 +46,12 @@ public class DriverCommentBO implements Serializable {
         this.id = id;
     }
 
-    public Long getDriverId() {
-        return driverId;
+    public String getNicname() {
+        return nicname;
     }
 
-    public void setDriverId(Long driverId) {
-        this.driverId = driverId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setNicname(String nicname) {
+        this.nicname = nicname;
     }
 
     public String getComments() {

@@ -7,7 +7,6 @@ import com.wj.driving.restfulapi.enums.driver.DriverStateEnum;
 import com.wj.driving.restfulapi.request.driver.DriverRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
