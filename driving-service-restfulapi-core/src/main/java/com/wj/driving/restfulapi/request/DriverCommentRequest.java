@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ *  评价
  * </p>
  *
  * @author wangjian
@@ -16,4 +16,12 @@ public class DriverCommentRequest implements Serializable {
      * 代驾id
      */
     private Long driverId;
+
+    public Long getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
+    }
 }
