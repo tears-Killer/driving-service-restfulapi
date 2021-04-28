@@ -20,7 +20,7 @@ public class DriverCommentDetailsDTO implements Serializable {
     /**
      * 评价者手机号
      */
-    private String phone;
+    private String mobileNo;
     /**
      * 评价订单号
      */
@@ -50,12 +50,12 @@ public class DriverCommentDetailsDTO implements Serializable {
         this.id = id;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
     public Long getOrderNo() {
