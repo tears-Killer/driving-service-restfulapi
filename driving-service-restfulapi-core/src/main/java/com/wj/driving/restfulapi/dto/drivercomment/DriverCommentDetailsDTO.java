@@ -18,9 +18,13 @@ public class DriverCommentDetailsDTO implements Serializable {
      */
     private Long id;
     /**
-     * 评价人昵称
+     * 评价者手机号
      */
-    private String nicname;
+    private String mobileNo;
+    /**
+     * 评价订单号
+     */
+    private Long orderNo;
     /**
      * 评价内容
      */
@@ -46,12 +50,20 @@ public class DriverCommentDetailsDTO implements Serializable {
         this.id = id;
     }
 
-    public String getNicname() {
-        return nicname;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setNicname(String nicname) {
-        this.nicname = nicname;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public Long getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Long orderNo) {
+        this.orderNo = orderNo;
     }
 
     public String getComments() {
