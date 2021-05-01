@@ -1,23 +1,32 @@
 package com.wj.driving.restfulapi.dto.admin;
 
-import com.wj.driving.restfulapi.enums.admin.AuthEnum;
-
 import java.io.Serializable;
 
 /**
  * @ClassName AdminDTO
- * @Description TODO
+ * @Description
  * @Author wangjian
  * @Date 2020/12/31 16:03
  */
 public class AdminDetailsDTO implements Serializable {
+
     private Long id;
+
     private String name;
+
     private String sex;
+
     private Integer age;
+
     private String phone;
+
+    private String idCard;
+
     private String password;
-    private AuthEnum auth;
+
+    private Integer auth;
+
+    private String authName;
 
     public Long getId() {
         return id;
@@ -67,12 +76,28 @@ public class AdminDetailsDTO implements Serializable {
         this.password = password;
     }
 
-    public AuthEnum getAuth() {
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    public Integer getAuth() {
         return auth;
     }
 
-    public void setAuth(AuthEnum auth) {
+    public void setAuth(Integer auth) {
         this.auth = auth;
+    }
+
+    public String getAuthName() {
+        return authName;
+    }
+
+    public void setAuthName(String authName) {
+        this.authName = authName;
     }
 
     @Override
@@ -83,8 +108,10 @@ public class AdminDetailsDTO implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
                 ", phone='" + phone + '\'' +
+                ", idCard='" + idCard + '\'' +
                 ", password='" + password + '\'' +
                 ", auth=" + auth +
+                ", authName='" + authName + '\'' +
                 '}';
     }
 }

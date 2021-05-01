@@ -1,8 +1,10 @@
 package com.wj.driving.restfulapi.domain.bo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.TableLogic;
+
 import java.io.Serializable;
 
 /**
@@ -17,7 +19,7 @@ public class AdminBO implements Serializable {
 
 	private static final long serialVersionUID =  1928004993496379225L;
 
-   	@TableField("id" )
+	@TableId(type = IdType.INPUT)
 	private Long id;
 
    	@TableField("name" )
@@ -31,6 +33,9 @@ public class AdminBO implements Serializable {
 
    	@TableField("phone" )
 	private String phone;
+
+   	@TableField("id_card")
+	private String idCard;
 
    	@TableField("password" )
 	private String password;
@@ -84,6 +89,14 @@ public class AdminBO implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 	public Integer getAuth() {

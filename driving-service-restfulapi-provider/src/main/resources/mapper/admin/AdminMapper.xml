@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.admin.AdminMapper">
+
+    <!--基础字段-->
+    <sql id="base_column">
+        id,name,sex,age,phone,id_card,password,auth
+    </sql>
+
+    <select id="selectPage" resultType="com.wj.driving.restfulapi.domain.bo.AdminBO">
+        select
+        <include refid="base_column"></include>
+        from admin
+        <include refid="pageWhereSql"></include>
+        order by id
+        limit #{page},#{pageSize}
+    </select>
+
+    <select id="countAdmin" resultType="java.lang.Integer">
+        select count(1)
+        from admin
+        <include refid="pageWhereSql"></include>
+    </select>
+
+    <sql id="pageWhereSql">
+        <where>
+            <if test="name != null and name != ''">
+                AND name like concat('%',trim(#{name}),'%')
+            </if>
+            <if test="phone != null and phone != ''">
+                AND phone like concat('%',trim(#{phone}),'%')
+            </if>
+            <if test="auth != null">
+                AND auth = #{auth}
+            </if>
+        </where>
+    </sql>
+</mapper>

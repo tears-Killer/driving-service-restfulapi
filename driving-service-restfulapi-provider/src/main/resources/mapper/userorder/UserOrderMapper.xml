@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.userorder.UserOrderMapper">
+
+    <sql id="base_colum">
+        orders.id,orders.order_no,user.name,user.mobile_no,orders.province,orders.city,orders.county,orders.street,orders.amount,orders.create_time,orders.last_update_time,orders.state
+    </sql>
+
+    <resultMap id="orderMap" type="com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO">
+        <result column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="name" property="userName"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="provicne" property="province"/>
+        <result column="city" property="city"/>
+        <result column="county" property="county"/>
+        <result column="street" property="street"/>
+        <result column="amount" property="amount"/>
+        <result column="createe_time" property="createTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+        <result column="state" property="state"/>
+    </resultMap>
+
+    <select id="getOrderList" resultMap="orderMap">
+        select
+        <include refid="base_colum"></include>
+        from user_order orders
+        left join biz_user user on orders.user_id = user.id
+        <include refid="pageWhere"></include>
+        order by orders.id
+        limit #{page},#{pageSize}
+    </select>
+
+    <select id="countPage" resultType="java.lang.Integer">
+        select count(1)
+        from user_order orders
+        left join biz_user user on orders.user_id = user.id
+        <include refid="pageWhere"></include>
+    </select>
+
+    <sql id="pageWhere">
+        <where>
+            <if test="orderNo != null">
+                AND orders.order_no = #{orderNo}
+            </if>
+            <if test="userName != null and userName != ''">
+                AND user.name = #{userName}
+            </if>
+            <if test="mobileNo != null">
+                AND user.mobile_no like concat(trim(#{mobileNo}),'%')
+            </if>
+            <if test="province != null and province != ''">
+                AND orders.province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                AND orders.city = #{city}
+            </if>
+            <if test="county != null and county != ''">
+                AND orders.county = #{county}
+            </if>
+            <if test="street != null and street != ''">
+                AND orders.street = #{street}
+            </if>
+            <if test="state != null">
+                AND orders.state = #{state}
+            </if>
+            <if test="minAmount != null and maxAmount != null">
+                AND orders.amount between #{minAmount} and #{maxAmount}
+            </if>
+            <if test="beginTime != null and endTime != null">
+                AND orders.create_time between #{beginTime} and #{endTime}
+            </if>
+        </where>
+    </sql>
+</mapper>

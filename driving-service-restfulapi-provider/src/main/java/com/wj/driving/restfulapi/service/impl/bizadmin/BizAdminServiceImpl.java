@@ -4,11 +4,12 @@
 package com.wj.driving.restfulapi.service.impl.bizadmin;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.wj.driving.restfulapi.domain.bizadmin.BizAdminBL;
+import com.wj.driving.restfulapi.domain.bl.bizadmin.BizAdminBL;
 import com.wj.driving.restfulapi.dto.admin.AdminDetailsDTO;
+import com.wj.driving.restfulapi.request.admin.AdminRequestSearch;
+import com.wj.driving.restfulapi.result.PageResult;
+import com.wj.driving.restfulapi.service.bizadmin.BizAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 /**
  * @ClassName BizAdminService
@@ -17,14 +18,14 @@ import java.util.List;
  * @Date 2020/12/31 17:47
  */
 @Service
-public class BizAdminServiceImpl implements com.wj.driving.restfulapi.service.bizadmin.BizAdminService {
+public class BizAdminServiceImpl implements BizAdminService {
 
     @Autowired
     private BizAdminBL bizAdminBL;
 
     @Override
-    public List<AdminDetailsDTO> getAllAdmin() {
-        return bizAdminBL.getAllAdmin();
+    public PageResult<AdminDetailsDTO> getAllAdmin(AdminRequestSearch request) {
+        return bizAdminBL.getAllAdmin(request);
     }
 
     @Override
@@ -40,5 +41,10 @@ public class BizAdminServiceImpl implements com.wj.driving.restfulapi.service.bi
     @Override
     public int updateAdminPWD(AdminDetailsDTO adminDTO,String newPassword) {
         return bizAdminBL.updateAdminPWD(adminDTO,newPassword);
+    }
+
+    @Override
+    public int deleteAdmin(Long id) {
+        return bizAdminBL.deleteAdmin(id);
     }
 }

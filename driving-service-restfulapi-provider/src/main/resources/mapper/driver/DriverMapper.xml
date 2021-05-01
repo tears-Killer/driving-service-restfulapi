@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.driver.DriverMapper">
+
+    <sql id="base_colum">
+        id,name,sex,age,phone,id_card,star_level,state
+    </sql>
+
+    <insert id="insertDriver" parameterType="com.wj.driving.restfulapi.domain.bo.DriverBO">
+        insert into
+        driver(name,sex,age,phone,id_card,star_level,state)
+        values(#{name},#{sex},#{age},#{phone},#{idCard},#{starLevel},#{state})
+    </insert>
+
+    <update id="updateDriver" parameterType="com.wj.driving.restfulapi.domain.bo.DriverBO">
+        update driver
+        <set>
+            <if test="name!=null and name!=''">
+
+            </if>
+        </set>
+    </update>
+
+    <select id="countPage" resultType="java.lang.Integer">
+        select count(1)
+        from driver
+        <include refid="pageWhere"></include>
+    </select>
+
+    <select id="getDriverDetailsList" resultType="com.wj.driving.restfulapi.domain.bo.DriverBO">
+        select
+        <include refid="base_colum"></include>
+        from driver
+        <include refid="pageWhere"></include>
+        limit #{page},#{pageSize}
+    </select>
+
+    <sql id="pageWhere">
+        <where>
+            <if test="name!=null and name!=''">
+                and name = #{name}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone = #{phone}
+            </if>
+            <if test="starLevel!=null">
+                and star_level = #{starLevel}
+            </if>
+            <if test="state!=null">
+                and state = #{state}
+            </if>
+        </where>
+    </sql>
+</mapper>

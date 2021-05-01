@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.drivercomment.DriverCommentMapper">
+
+    <sql id="base_colum">
+        dc.id,bz.mobile_no,uo.order_no,dc.comments,dc.score,dc.createTime,dc.lastUpdateTime
+    </sql>
+
+    <resultMap id="commentMap" type="com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO">
+        <result column="id" property="id"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="comments" property="comments"/>
+        <result column="score" property="score"/>
+        <result column="createTime" property="createTime"/>
+        <result column="lastUpdateTime" property="lastUpdateTime"/>
+    </resultMap>
+
+    <select id="getAllCommentsById" resultMap="commentMap">
+        select
+        <include refid="base_colum"></include>
+        from driver_comment dc
+        left join biz_user bz on dc.userId = bz.id
+        left join user_order uo on dc.orderId = uo.id
+        where driverId = #{driverId}
+    </select>
+
+    <select id="countPage" resultType="java.lang.Integer">
+        select count(1)
+        from driver_comment dc
+        left join biz_user bz on dc.userId = bz.id
+        left join user_order uo on dc.orderId = uo.id
+        where driverId = #{driverId}
+    </select>
+
+</mapper>

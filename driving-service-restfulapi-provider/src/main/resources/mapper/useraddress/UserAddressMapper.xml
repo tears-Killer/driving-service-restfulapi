@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.useraddress.UserAddressMapper">
+    <!--基础字段-->
+    <sql id="base_column">
+        address.id,address.user_id,user.name,address.province,address.city,address.county,address.street,address.detail_address,address.state,address.create_time,address.last_update_time
+    </sql>
+
+    <resultMap id="BaseMap" type="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="county" property="county"/>
+        <result column="street" property="street"/>
+        <result column="detail_address" property="detailAddress"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+        <result column="name" property="userName"/>
+    </resultMap>
+
+    <update id="updateAddressState" parameterType="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        update user_address
+        <set>
+            <if test="state != null">
+                state = #{state}
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteAddress" parameterType="java.lang.Long">
+        delete from user_address where id = #{id}
+    </delete>
+
+    <select id="getDefaultAddressList" resultMap="BaseMap">
+        select
+        <include refid="base_column"></include>
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        <include refid="pageWhereSql"></include>
+        order by address.id
+        limit #{page},#{pageSize}
+    </select>
+
+    <select id="countPage" resultType="java.lang.Integer">
+        select count(1)
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        <include refid="pageWhereSql"></include>
+        order by address.id
+    </select>
+
+    <select id="getCommonlyAddressListByUserId" resultMap="BaseMap">
+        select
+        <include refid="base_column"></include>
+        from user_address address
+        left join biz_user user on address.user_id = user.id
+        where address.state = 1 and address.user_id = #{userId}
+        order by address.count desc
+        limit 0,5
+    </select>
+
+    <select id="getDefaultAddressId" resultType="java.lang.Long">
+        select id
+        from user_address
+        where user_id = #{userId}
+          and state = 0
+    </select>
+
+    <select id="getCommonAddressTopUse" resultType="java.lang.Long">
+        select id
+        from user_address
+        where user_id = #{userId}
+        and state = 1
+        order by address.count desc
+        limit 0,1
+    </select>
+
+    <select id="getAddressDetailById" resultType="com.wj.driving.restfulapi.dto.useraddress.UserAddressDTO">
+        select
+        <include refid="base_column"></include>
+        from user_address
+        where id = #{id}
+    </select>
+
+    <sql id="pageWhereSql">
+        <where>
+            <if test="userName != null and userName != ''">
+                AND user.name like concat(trim(#{userName}),'%')
+            </if>
+            <if test="province != null and province != ''">
+                AND address.province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                AND address.city = #{city}
+            </if>
+            <if test="county != null and county != ''">
+                AND address.county = #{county}
+            </if>
+            <if test="street != null and street != ''">
+                AND address.street = #{street}
+            </if>
+            <if test="state != null">
+                AND address.state = #{state}
+            </if>
+            <if test="detailAddress != null and detailAddress != ''">
+                AND address.detail_address = #{detailAddress}
+            </if>
+        </where>
+    </sql>
+</mapper>
