@@ -18,6 +18,10 @@ public class DriverCommentDetailsDTO implements Serializable {
      */
     private Long id;
     /**
+     * 评价者昵称
+     */
+    private String nickname;
+    /**
      * 评价者手机号
      */
     private String mobileNo;
@@ -48,6 +52,14 @@ public class DriverCommentDetailsDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getMobileNo() {

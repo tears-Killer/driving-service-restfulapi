@@ -20,4 +20,6 @@ public interface IDriverService {
      * @return
      */
     PageResult<DriverDetailsDTO> selectPage(DriverRequestSearch request);
+
+    int addDriver();
 }

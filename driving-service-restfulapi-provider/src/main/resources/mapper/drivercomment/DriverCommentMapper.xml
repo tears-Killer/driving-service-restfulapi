@@ -3,12 +3,13 @@
 <mapper namespace="com.wj.driving.restfulapi.domain.mapper.drivercomment.DriverCommentMapper">
 
     <sql id="base_colum">
-        dc.id,bz.mobile_no,uo.order_no,dc.comments,dc.score,dc.createTime,dc.lastUpdateTime
+        dc.id,bz.mobile_no,bz.nickname,uo.order_no,dc.comments,dc.score,dc.createTime,dc.lastUpdateTime
     </sql>
 
     <resultMap id="commentMap" type="com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO">
         <result column="id" property="id"/>
         <result column="mobile_no" property="mobileNo"/>
+        <result column="nickname" property="nickname"/>
         <result column="order_no" property="orderNo"/>
         <result column="comments" property="comments"/>
         <result column="score" property="score"/>
