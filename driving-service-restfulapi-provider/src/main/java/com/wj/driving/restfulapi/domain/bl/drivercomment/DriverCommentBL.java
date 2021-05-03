@@ -5,6 +5,7 @@ import com.wj.driving.restfulapi.domain.mapper.drivercomment.DriverCommentMapper
 import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
 import com.wj.driving.restfulapi.request.DriverCommentRequest;
 import com.wj.driving.restfulapi.result.PageResult;
+import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,6 +29,11 @@ public class DriverCommentBL {
         PageResult<DriverCommentDetailsDTO> pageResult = new PageResult<>();
         int totalCount = driverCommentMapper.countPage(request.getDriverId());
         List<DriverCommentDetailsDTO> commentDetailsDTOList = totalCount > 0 ? driverCommentMapper.getAllCommentsById(request.getDriverId()): Lists.newArrayList();
+        if(totalCount>0){
+            commentDetailsDTOList.forEach(driverCommentDetailsDTO -> {
+                driverCommentDetailsDTO.setMobileNo(PrivacyDimmer.maskMobile(driverCommentDetailsDTO.getMobileNo()));
+            });
+        }
         pageResult.setTotalCount(totalCount);
         pageResult.setList(commentDetailsDTOList);
         return pageResult;
