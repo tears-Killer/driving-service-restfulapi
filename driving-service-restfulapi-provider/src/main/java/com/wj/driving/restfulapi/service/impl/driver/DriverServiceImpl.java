@@ -32,4 +32,9 @@ public class DriverServiceImpl implements IDriverService {
         PageResult<DriverDetailsDTO> result = driverServiceBL.selectPage(request);
         return result;
     }
+
+    @Override
+    public int addDriver() {
+        return 0;
+    }
 }

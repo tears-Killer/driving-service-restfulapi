@@ -20,17 +20,12 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public int insertUser(UserDTO userDTO) {
-        return 0;
-    }
-
-    @Override
     public int updateUser(UserDTO userDTO) {
-        return 0;
+        return userServiceBL.updateUser(userDTO);
     }
 
     @Override
-    public int deleteUser(UserDTO userDTO) {
-        return 0;
+    public int updateUserState(UserDTO userDTO) {
+        return userServiceBL.updateUserState(userDTO);
     }
 }

@@ -1,8 +1,8 @@
 package com.wj.driving.restfulapi.enums.user;
 
 public enum UserStatusEnum {
-    未下单客户(0,"未下单客户"),
-    已下单客户(1,"已下单客户");
+    未下单客户(0,"未认证"),
+    已下单客户(1,"已认证");
 
     private Integer state;
 

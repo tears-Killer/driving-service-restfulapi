@@ -30,21 +30,31 @@ public class OrderDetailsDTO implements Serializable {
      */
     private String mobileNo;
     /**
+     * 起始地-省
+     */
+    private String fromProvicne;
+
+    private String fromCounty;
+
+    private String fromCity;
+
+    private String fromStreet;
+    /**
      * 目的地-省
      */
-    private String province;
+    private String toProvince;
     /**
      * 目的地-市
      */
-    private String city;
+    private String toCity;
     /**
      * 目的地-区
      */
-    private String county;
+    private String toCounty;
     /**
      * 目的地-街道
      */
-    private String street;
+    private String toStreet;
     /**
      * 代驾人员名称
      */

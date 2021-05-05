@@ -8,9 +8,9 @@ import com.wj.driving.restfulapi.request.user.UserRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class UserServiceBL {
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     public PageResult<UserDTO> getUserList(UserRequestSearch request){
@@ -43,7 +43,7 @@ public class UserServiceBL {
                 String createTime = formatter.format(item.getCreateTime());
                 userDTO.setCreateTime(createTime);
                 String lastUpdateTime = formatter.format(item.getLastUpdateTime());
-                userDTO.setCreateTime(lastUpdateTime);
+                userDTO.setLastUpdateTime(lastUpdateTime);
 
                 resultList.add(userDTO);
             });
@@ -53,4 +53,11 @@ public class UserServiceBL {
         return result;
     }
 
+    public int updateUser(UserDTO userDTO){
+        return userMapper.updateUser(userDTO);
+    }
+
+    public int updateUserState(UserDTO userDTO){
+       return userMapper.updateUserState(userDTO);
+    }
 }

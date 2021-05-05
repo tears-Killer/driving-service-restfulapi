@@ -1,7 +1,7 @@
 package com.wj.driving.restfulapi.service.drivercomment;
 
 import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
-import com.wj.driving.restfulapi.request.DriverCommentRequest;
+import com.wj.driving.restfulapi.request.driver.DriverCommentRequest;
 import com.wj.driving.restfulapi.result.PageResult;
 
 /**

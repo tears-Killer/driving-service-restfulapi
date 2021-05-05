@@ -12,13 +12,6 @@ public interface IUserService {
     PageResult<UserDTO> getUserList(UserRequestSearch request);
 
     /**
-     * 插入新用户
-     * @param userDTO
-     * @return
-     */
-   int insertUser(UserDTO userDTO);
-
-    /**
      * 更新用户
      * @param userDTO
      * @return
@@ -26,9 +19,10 @@ public interface IUserService {
    int updateUser(UserDTO userDTO);
 
     /**
-     * 删除用户
+     * 修改用户状态
      * @param userDTO
      * @return
      */
-   int deleteUser(UserDTO userDTO);
+   int updateUserState(UserDTO userDTO);
+
 }

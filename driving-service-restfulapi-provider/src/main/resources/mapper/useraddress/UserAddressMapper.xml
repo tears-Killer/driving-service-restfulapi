@@ -60,7 +60,7 @@
         <include refid="base_column"></include>
         from user_address address
         left join biz_user user on address.user_id = user.id
-        where address.state = 1 and address.user_id = #{userId}
+        where address.user_id = #{userId}
         order by address.count desc
         limit 0,5
     </select>
@@ -103,13 +103,13 @@
                 AND address.county = #{county}
             </if>
             <if test="street != null and street != ''">
-                AND address.street = #{street}
+                AND address.street like concat('%',trim(#{userName}),'%')
             </if>
             <if test="state != null">
                 AND address.state = #{state}
             </if>
             <if test="detailAddress != null and detailAddress != ''">
-                AND address.detail_address = #{detailAddress}
+                AND address.detail_address like concat('%',trim(#{detailAddress}),'%')
             </if>
         </where>
     </sql>

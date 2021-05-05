@@ -2,6 +2,7 @@ package com.wj.driving.restfulapi.domain.mapper.user;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wj.driving.restfulapi.domain.bo.UserBO;
+import com.wj.driving.restfulapi.dto.user.UserDTO;
 import com.wj.driving.restfulapi.request.user.UserRequestSearch;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,7 @@ public interface UserMapper extends BaseMapper<UserBO> {
 
     int countUser(UserRequestSearch request);
 
+    int updateUser(UserDTO userDTO);
+
+    int updateUserState(UserDTO userDTO);
 }

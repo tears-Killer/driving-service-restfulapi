@@ -3,7 +3,7 @@ package com.wj.driving.restfulapi.domain.bl.drivercomment;
 import com.google.common.collect.Lists;
 import com.wj.driving.restfulapi.domain.mapper.drivercomment.DriverCommentMapper;
 import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
-import com.wj.driving.restfulapi.request.DriverCommentRequest;
+import com.wj.driving.restfulapi.request.driver.DriverCommentRequest;
 import com.wj.driving.restfulapi.result.PageResult;
 import com.wj.driving.restfulapi.utils.PrivacyDimmer;
 import org.springframework.stereotype.Service;

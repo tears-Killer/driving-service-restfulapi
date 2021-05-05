@@ -1,4 +1,4 @@
-package com.wj.driving.restfulapi.request;
+package com.wj.driving.restfulapi.request.driver;
 
 import java.io.Serializable;
 

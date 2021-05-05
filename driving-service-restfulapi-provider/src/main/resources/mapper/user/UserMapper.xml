@@ -6,12 +6,59 @@
     <sql id="base_column">
         id,name,nickname,sex,mobile_no,id_card,address_id,state,create_time,last_update_time
     </sql>
+
+    <resultMap id="userMap" type="com.wj.driving.restfulapi.domain.bo.UserBO">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="nickname" property="nickname"/>
+        <result column="sex" property="sex"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="id_card" property="idCard"/>
+        <result column="address_id" property="addressId"/>
+        <result column="state" property="state"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+    </resultMap>
+
     <insert id="insert">
         insert into biz_user(name,age)
         values(#{studentname},#{age})
     </insert>
 
-    <select id="selectPage" resultType="com.wj.driving.restfulapi.domain.bo.UserBO">
+    <update id="updateUser">
+        update biz_user
+        <set>
+            <if test="name!=null and name!=''">
+                name = #{name},
+            </if>
+            <if test="nickname!=null and nickname!=''">
+                nickname = #{nickname},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex = #{sex},
+            </if>
+            <if test="mobileNo!=null">
+                mobile_no = #{mobileNo},
+            </if>
+            <if test="idCard!=null">
+                id_card = #{idCard},
+            </if>
+            last_update_time = now()
+        </set>
+        where id = #{id}
+    </update>
+    <update id="updateUserState">
+        update biz_user
+        <set>
+            <if test="state!=null">
+                state = #{state},
+            </if>
+            last_update_time = now()
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="selectPage" resultMap="userMap">
         select
         <include refid="base_column"></include>
         from biz_user

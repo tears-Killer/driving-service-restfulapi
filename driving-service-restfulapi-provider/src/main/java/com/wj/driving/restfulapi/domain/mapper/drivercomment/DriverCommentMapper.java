@@ -1,6 +1,5 @@
 package com.wj.driving.restfulapi.domain.mapper.drivercomment;
 
-import com.wj.driving.restfulapi.domain.bo.DriverCommentBO;
 import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
 
 import java.util.List;
