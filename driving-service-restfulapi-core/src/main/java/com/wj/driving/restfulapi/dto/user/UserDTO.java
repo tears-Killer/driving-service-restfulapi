@@ -17,7 +17,9 @@ public class UserDTO implements Serializable {
 
     private String idCard;
 
-    private String state;
+    private Integer state;
+
+    private String stateName;
 
     private String createTime;
 
@@ -71,12 +73,20 @@ public class UserDTO implements Serializable {
         this.idCard = idCard;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     public String getCreateTime() {
@@ -95,18 +105,4 @@ public class UserDTO implements Serializable {
         this.lastUpdateTime = lastUpdateTime;
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", mobileNo='" + mobileNo + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", state='" + state + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", lastUpdateTime='" + lastUpdateTime + '\'' +
-                '}';
-    }
 }

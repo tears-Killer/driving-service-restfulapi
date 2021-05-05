@@ -126,6 +126,62 @@ public class OrderDetailsDTO implements Serializable {
         this.fromProvicne = fromProvicne;
     }
 
+    public String getFromCounty() {
+        return fromCounty;
+    }
+
+    public void setFromCounty(String fromCounty) {
+        this.fromCounty = fromCounty;
+    }
+
+    public String getFromCity() {
+        return fromCity;
+    }
+
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
+    }
+
+    public String getFromStreet() {
+        return fromStreet;
+    }
+
+    public void setFromStreet(String fromStreet) {
+        this.fromStreet = fromStreet;
+    }
+
+    public String getToProvince() {
+        return toProvince;
+    }
+
+    public void setToProvince(String toProvince) {
+        this.toProvince = toProvince;
+    }
+
+    public String getToCity() {
+        return toCity;
+    }
+
+    public void setToCity(String toCity) {
+        this.toCity = toCity;
+    }
+
+    public String getToCounty() {
+        return toCounty;
+    }
+
+    public void setToCounty(String toCounty) {
+        this.toCounty = toCounty;
+    }
+
+    public String getToStreet() {
+        return toStreet;
+    }
+
+    public void setToStreet(String toStreet) {
+        this.toStreet = toStreet;
+    }
+
     public String getDriverName() {
         return driverName;
     }

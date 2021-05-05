@@ -34,7 +34,7 @@ public class DriverServiceImpl implements IDriverService {
     }
 
     @Override
-    public int addDriver() {
+    public int updateDriverState(DriverDetailsDTO driverDetailsDTO) {
         return 0;
     }
 }

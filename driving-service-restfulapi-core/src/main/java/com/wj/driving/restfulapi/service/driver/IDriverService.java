@@ -21,5 +21,10 @@ public interface IDriverService {
      */
     PageResult<DriverDetailsDTO> selectPage(DriverRequestSearch request);
 
-    int addDriver();
+    /**
+     * 修改代驾状态
+     * @param driverDetailsDTO
+     * @return
+     */
+    int updateDriverState(DriverDetailsDTO driverDetailsDTO);
 }

@@ -38,7 +38,8 @@ public class UserServiceBL {
                     String idCard = PrivacyDimmer.maskIdCard(item.getIdCard());
                     userDTO.setIdCard(idCard);
                 }
-                userDTO.setState(UserStatusEnum.getSourceType(item.getState()));
+                userDTO.setState(item.getState());
+                userDTO.setStateName(UserStatusEnum.getSourceType(item.getState()));
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String createTime = formatter.format(item.getCreateTime());
                 userDTO.setCreateTime(createTime);
