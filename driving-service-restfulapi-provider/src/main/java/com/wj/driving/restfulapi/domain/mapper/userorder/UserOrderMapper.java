@@ -18,4 +18,6 @@ public interface UserOrderMapper {
     List<OrderDetailsDTO> getOrderList(UserOrderRequestSearch request);
 
     int countPage(UserOrderRequestSearch request);
+
+    int updateOrderInfo(OrderDetailsDTO orderDetailsDTO);
 }

@@ -36,4 +36,8 @@ public class UserOrderBL {
         pageResult.setList(orderList);
         return pageResult;
     }
+
+    public int updateOrderInfo(OrderDetailsDTO orderDetailsDTO){
+        return userOrderMapper.updateOrderInfo(orderDetailsDTO);
+    }
 }

@@ -30,21 +30,37 @@ public class OrderBO implements Serializable {
      */
     private Long driverId;
     /**
+     * 起始地-省
+     */
+    private String fromProvicne;
+    /**
+     * 起始地-区
+     */
+    private String fromCounty;
+    /**
+     * 起始地-市
+     */
+    private String fromCity;
+    /**
+     * 起始地-街道
+     */
+    private String fromStreet;
+    /**
      * 目的地-省
      */
-    private String province;
+    private String toProvince;
     /**
      * 目的地-市
      */
-    private String city;
+    private String toCity;
     /**
      * 目的地-区
      */
-    private String county;
+    private String toCounty;
     /**
      * 目的地-街道
      */
-    private String street;
+    private String toStreet;
     /**
      * 订单状态
      */
@@ -95,36 +111,68 @@ public class OrderBO implements Serializable {
         this.driverId = driverId;
     }
 
-    public String getProvince() {
-        return province;
+    public String getFromProvicne() {
+        return fromProvicne;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setFromProvicne(String fromProvicne) {
+        this.fromProvicne = fromProvicne;
     }
 
-    public String getCity() {
-        return city;
+    public String getFromCounty() {
+        return fromCounty;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setFromCounty(String fromCounty) {
+        this.fromCounty = fromCounty;
     }
 
-    public String getCounty() {
-        return county;
+    public String getFromCity() {
+        return fromCity;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
     }
 
-    public String getStreet() {
-        return street;
+    public String getFromStreet() {
+        return fromStreet;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setFromStreet(String fromStreet) {
+        this.fromStreet = fromStreet;
+    }
+
+    public String getToProvince() {
+        return toProvince;
+    }
+
+    public void setToProvince(String toProvince) {
+        this.toProvince = toProvince;
+    }
+
+    public String getToCity() {
+        return toCity;
+    }
+
+    public void setToCity(String toCity) {
+        this.toCity = toCity;
+    }
+
+    public String getToCounty() {
+        return toCounty;
+    }
+
+    public void setToCounty(String toCounty) {
+        this.toCounty = toCounty;
+    }
+
+    public String getToStreet() {
+        return toStreet;
+    }
+
+    public void setToStreet(String toStreet) {
+        this.toStreet = toStreet;
     }
 
     public Integer getState() {

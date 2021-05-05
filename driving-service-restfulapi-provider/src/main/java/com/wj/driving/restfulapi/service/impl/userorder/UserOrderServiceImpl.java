@@ -26,4 +26,9 @@ public class UserOrderServiceImpl implements IUserOrderService {
     public PageResult<OrderDetailsDTO> selectPage(UserOrderRequestSearch request) {
         return userOrderBL.selectPage(request);
     }
+
+    @Override
+    public int updateOrderInfo(OrderDetailsDTO orderDetailsDTO) {
+        return userOrderBL.updateOrderInfo(orderDetailsDTO);
+    }
 }

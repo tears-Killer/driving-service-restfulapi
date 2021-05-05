@@ -11,9 +11,9 @@ package com.wj.driving.restfulapi.enums.userorder;
 public enum OrderStateEnum {
     未接单(0,"未接单"),
     已接单(1,"已接单"),
-    运送中(2,"运送中"),
-    已完成(3,"已完成"),
-    已取消(4,"已取消");
+    已完成(2,"已完成"),
+    已取消(3,"已取消"),
+    待支付(4,"待支付");
 
     private Integer value;
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.wj.driving.restfulapi.domain.mapper.userorder.UserOrderMapper">
 
     <sql id="base_colum">
-        orders.id,orders.order_no,user.name,user.mobile_no,orders.province,orders.city,orders.county,orders.street,orders.amount,orders.create_time,orders.last_update_time,orders.state
+        orders.id,orders.order_no,user.name,user.mobile_no,orders.from_province,orders.from_city,orders.from_county,orders.from_street,orders.to_province,orders.to_city,orders.to_county,orders.to_street,orders.amount,orders.create_time,orders.last_update_time,orders.state
     </sql>
 
     <resultMap id="orderMap" type="com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO">
@@ -11,16 +11,38 @@
         <result column="order_no" property="orderNo"/>
         <result column="name" property="userName"/>
         <result column="mobile_no" property="mobileNo"/>
-        <result column="provicne" property="province"/>
-        <result column="city" property="city"/>
-        <result column="county" property="county"/>
-        <result column="street" property="street"/>
+        <result column="from_provicne" property="fromProvicne"/>
+        <result column="from_city" property="fromCity"/>
+        <result column="from_county" property="fromCounty"/>
+        <result column="from_street" property="fromStreet"/>
+        <result column="to_province" property="toProvince"/>
+        <result column="to_city" property="toCity"/>
+        <result column="to_county" property="toCounty"/>
+        <result column="to_street" property="toStreet"/>
         <result column="amount" property="amount"/>
         <result column="createe_time" property="createTime"/>
         <result column="last_update_time" property="lastUpdateTime"/>
         <result column="state" property="state"/>
     </resultMap>
 
+    <update id="updateOrderInfo">
+        update user_order
+        <set>
+            <if test="toProvince!=null and toProvince!=''">
+                to_province = #{toProvince},
+            </if>
+            <if test="toCity!=null and toCity!=''">
+                to_city = #{toCity},
+            </if>
+            <if test="toCounty!=null and toCounty!=''">
+                to_county = #{toCounty},
+            </if>
+            <if test="toStreet!=null and toStreet!=''">
+                to_street = #{toStreet},
+            </if>
+        </set>
+            where id = #{id}
+    </update>
     <select id="getOrderList" resultMap="orderMap">
         select
         <include refid="base_colum"></include>

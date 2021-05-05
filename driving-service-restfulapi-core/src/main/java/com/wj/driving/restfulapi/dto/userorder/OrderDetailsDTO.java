@@ -33,11 +33,17 @@ public class OrderDetailsDTO implements Serializable {
      * 起始地-省
      */
     private String fromProvicne;
-
+    /**
+     * 起始地-区
+     */
     private String fromCounty;
-
+    /**
+     * 起始地-市
+     */
     private String fromCity;
-
+    /**
+     * 起始地-街道
+     */
     private String fromStreet;
     /**
      * 目的地-省
@@ -112,36 +118,12 @@ public class OrderDetailsDTO implements Serializable {
         this.mobileNo = mobileNo;
     }
 
-    public String getProvince() {
-        return province;
+    public String getFromProvicne() {
+        return fromProvicne;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
+    public void setFromProvicne(String fromProvicne) {
+        this.fromProvicne = fromProvicne;
     }
 
     public String getDriverName() {

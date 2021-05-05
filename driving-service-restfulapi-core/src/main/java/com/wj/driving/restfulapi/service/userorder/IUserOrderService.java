@@ -20,4 +20,11 @@ public interface IUserOrderService {
      * @return
      */
     PageResult<OrderDetailsDTO> selectPage(UserOrderRequestSearch request);
+
+    /**
+     * 修改订单信息
+     * @param orderDetailsDTO
+     * @return
+     */
+    int updateOrderInfo(OrderDetailsDTO orderDetailsDTO);
 }
