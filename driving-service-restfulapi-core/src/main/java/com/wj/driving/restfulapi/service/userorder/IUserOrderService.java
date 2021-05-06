@@ -1,5 +1,6 @@
 package com.wj.driving.restfulapi.service.userorder;
 
+import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
 import com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO;
 import com.wj.driving.restfulapi.request.userorder.UserOrderRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
@@ -27,4 +28,11 @@ public interface IUserOrderService {
      * @return
      */
     int updateOrderInfo(OrderDetailsDTO orderDetailsDTO);
+
+    /**
+     * 根据id获取订单评价
+     * @param orderDetailsDTO
+     * @return
+     */
+    DriverCommentDetailsDTO findCommentById(OrderDetailsDTO orderDetailsDTO);
 }

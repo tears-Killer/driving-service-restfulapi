@@ -9,7 +9,7 @@ package com.wj.driving.restfulapi.enums.userorder;
  * @since 2021/4/20
  */
 public enum OrderStateEnum {
-    未接单(0,"未接单"),
+    待接单(0,"待接单"),
     已接单(1,"已接单"),
     已完成(2,"已完成"),
     已取消(3,"已取消"),

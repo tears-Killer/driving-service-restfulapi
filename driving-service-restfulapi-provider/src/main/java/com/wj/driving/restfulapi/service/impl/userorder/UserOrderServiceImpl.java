@@ -2,6 +2,7 @@ package com.wj.driving.restfulapi.service.impl.userorder;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wj.driving.restfulapi.domain.bl.userorder.UserOrderBL;
+import com.wj.driving.restfulapi.dto.drivercomment.DriverCommentDetailsDTO;
 import com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO;
 import com.wj.driving.restfulapi.request.userorder.UserOrderRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
@@ -30,5 +31,10 @@ public class UserOrderServiceImpl implements IUserOrderService {
     @Override
     public int updateOrderInfo(OrderDetailsDTO orderDetailsDTO) {
         return userOrderBL.updateOrderInfo(orderDetailsDTO);
+    }
+
+    @Override
+    public DriverCommentDetailsDTO findCommentById(OrderDetailsDTO orderDetailsDTO) {
+        return userOrderBL.findCommentById(orderDetailsDTO);
     }
 }

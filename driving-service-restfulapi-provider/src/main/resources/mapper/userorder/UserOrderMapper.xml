@@ -3,7 +3,7 @@
 <mapper namespace="com.wj.driving.restfulapi.domain.mapper.userorder.UserOrderMapper">
 
     <sql id="base_colum">
-        orders.id,orders.order_no,user.name,user.mobile_no,orders.from_province,orders.from_city,orders.from_county,orders.from_street,orders.to_province,orders.to_city,orders.to_county,orders.to_street,orders.amount,orders.create_time,orders.last_update_time,orders.state
+        orders.id,orders.order_no,user.name,user.mobile_no,dr.name,orders.from_province,orders.from_city,orders.from_county,orders.from_street,orders.to_province,orders.to_city,orders.to_county,orders.to_street,orders.amount,orders.create_time,orders.last_update_time,orders.state
     </sql>
 
     <resultMap id="orderMap" type="com.wj.driving.restfulapi.dto.userorder.OrderDetailsDTO">
@@ -11,7 +11,8 @@
         <result column="order_no" property="orderNo"/>
         <result column="name" property="userName"/>
         <result column="mobile_no" property="mobileNo"/>
-        <result column="from_provicne" property="fromProvicne"/>
+        <result column="name" property="driverName"/>
+        <result column="from_province" property="fromProvicne"/>
         <result column="from_city" property="fromCity"/>
         <result column="from_county" property="fromCounty"/>
         <result column="from_street" property="fromStreet"/>
@@ -20,7 +21,7 @@
         <result column="to_county" property="toCounty"/>
         <result column="to_street" property="toStreet"/>
         <result column="amount" property="amount"/>
-        <result column="createe_time" property="createTime"/>
+        <result column="create_time" property="createTime"/>
         <result column="last_update_time" property="lastUpdateTime"/>
         <result column="state" property="state"/>
     </resultMap>
@@ -48,6 +49,7 @@
         <include refid="base_colum"></include>
         from user_order orders
         left join biz_user user on orders.user_id = user.id
+        left join driver dr on dr.id = orders.driver_id
         <include refid="pageWhere"></include>
         order by orders.id
         limit #{page},#{pageSize}
@@ -71,26 +73,11 @@
             <if test="mobileNo != null">
                 AND user.mobile_no like concat(trim(#{mobileNo}),'%')
             </if>
-            <if test="province != null and province != ''">
-                AND orders.province = #{province}
-            </if>
-            <if test="city != null and city != ''">
-                AND orders.city = #{city}
-            </if>
-            <if test="county != null and county != ''">
-                AND orders.county = #{county}
-            </if>
-            <if test="street != null and street != ''">
-                AND orders.street = #{street}
-            </if>
             <if test="state != null">
                 AND orders.state = #{state}
             </if>
             <if test="minAmount != null and maxAmount != null">
                 AND orders.amount between #{minAmount} and #{maxAmount}
-            </if>
-            <if test="beginTime != null and endTime != null">
-                AND orders.create_time between #{beginTime} and #{endTime}
             </if>
         </where>
     </sql>

@@ -34,4 +34,12 @@
         where driverId = #{driverId}
     </select>
 
+    <select id="getCommentById" resultMap="commentMap" parameterType="java.lang.Long">
+        select
+        <include refid="base_colum"></include>
+        from driver_comment dc
+        left join biz_user bz on dc.userId = bz.id
+        left join user_order uo on dc.orderId = uo.id
+        where dc.orderId = #{orderId}
+    </select>
 </mapper>

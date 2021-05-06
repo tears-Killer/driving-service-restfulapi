@@ -16,4 +16,6 @@ public interface DriverCommentMapper {
     int countPage(Long driverId);
 
     List<DriverCommentDetailsDTO> getAllCommentsById(Long driverId);
+
+    DriverCommentDetailsDTO getCommentById(Long orderId);
 }

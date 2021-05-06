@@ -26,22 +26,6 @@ public class UserOrderRequestSearch implements Serializable {
      */
     private String mobileNo;
     /**
-     * 目的地-省
-     */
-    private String province;
-    /**
-     * 目的地-市
-     */
-    private String city;
-    /**
-     * 目的地-区
-     */
-    private String county;
-    /**
-     * 目的地-街道
-     */
-    private String street;
-    /**
      * 订单状态
      */
     private String state;
@@ -53,15 +37,6 @@ public class UserOrderRequestSearch implements Serializable {
      * 订单金额-最大值
      */
     private Double maxAmount;
-    /**
-     * 订单创建时间
-     */
-    private Date beginTime;
-    /**
-     * 订单最后更新时间
-     */
-    private Date endTime;
-
     /**
      * 当前页
      */
@@ -96,38 +71,6 @@ public class UserOrderRequestSearch implements Serializable {
         this.mobileNo = mobileNo;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
     public String getState() {
         return state;
     }
@@ -150,22 +93,6 @@ public class UserOrderRequestSearch implements Serializable {
 
     public void setMaxAmount(Double maxAmount) {
         this.maxAmount = maxAmount;
-    }
-
-    public Date getBeginTime() {
-        return beginTime;
-    }
-
-    public void setBeginTime(Date beginTime) {
-        this.beginTime = beginTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
     }
 
     public Integer getPage() {
