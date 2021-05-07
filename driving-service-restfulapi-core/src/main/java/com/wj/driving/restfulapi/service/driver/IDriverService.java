@@ -27,4 +27,9 @@ public interface IDriverService {
      * @return
      */
     int updateDriverState(DriverDetailsDTO driverDetailsDTO);
+
+    /**
+     * 待审核列表
+     */
+//    PageResult<>
 }

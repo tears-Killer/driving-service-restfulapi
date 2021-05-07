@@ -100,4 +100,15 @@ public class BizAdminBL {
     public int deleteAdmin(Long id){
         return adminMapper.deleteById(id);
     }
+
+    public int resetAdminPwd(AdminDetailsDTO adminDTO){
+        QueryWrapper<AdminBO> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",adminDTO.getId());
+        AdminBO adminBO = adminMapper.selectOne(wrapper);
+        if(adminBO!=null){
+            adminBO.setPassword("Dj123456");
+            return adminMapper.updateById(adminBO);
+        }
+        return 0;
+    }
 }

@@ -47,4 +47,9 @@ public class BizAdminServiceImpl implements BizAdminService {
     public int deleteAdmin(Long id) {
         return bizAdminBL.deleteAdmin(id);
     }
+
+    @Override
+    public int resetAdminPwd(AdminDetailsDTO adminDetailsDTO) {
+        return bizAdminBL.resetAdminPwd(adminDetailsDTO);
+    }
 }
