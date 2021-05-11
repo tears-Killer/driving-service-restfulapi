@@ -1,17 +1,6 @@
-package com.wj.driving.restfulapi.domain.bo;
+package com.wj.driving.restfulapi.dto.driver;
 
-import java.io.Serializable;
-
-/**
- * <p>
- *  代驾实体
- * </p>
- *
- * @author wangjian
- * @since 2021/4/23
- */
-public class DriverBO implements Serializable {
-
+public class DriverAuditDTO {
     /**
      * 主键id
      */
@@ -37,17 +26,25 @@ public class DriverBO implements Serializable {
      */
     private Long idCard;
     /**
-     *等级
-     */
-    private Integer starLevel;
-    /**
      * 驾照图片
      */
     private String licenseImg;
     /**
-     *状态
+     * 审核状态
      */
     private Integer state;
+    /**
+     *状态
+     */
+    private String stateName;
+    /**
+     * 审核原因
+     */
+    private String audit;
+
+    private String createTime;
+
+    private String updateTime;
 
     public Long getId() {
         return id;
@@ -97,14 +94,6 @@ public class DriverBO implements Serializable {
         this.idCard = idCard;
     }
 
-    public Integer getStarLevel() {
-        return starLevel;
-    }
-
-    public void setStarLevel(Integer starLevel) {
-        this.starLevel = starLevel;
-    }
-
     public String getLicenseImg() {
         return licenseImg;
     }
@@ -119,5 +108,37 @@ public class DriverBO implements Serializable {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getAudit() {
+        return audit;
+    }
+
+    public void setAudit(String audit) {
+        this.audit = audit;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
     }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wj.driving.restfulapi.domain.mapper.driver.DriverAuditMapper">
+
+    <sql id="base_column">
+        id,name,sex,age,phone,id_card,license_img,state,audit,create_time,update_time
+    </sql>
+
+    <update id="updateAuditState">
+        update driver_audit
+        set state = 1,audit = #{audit},update_time = now()
+        where id =#{id}
+    </update>
+
+    <delete id="deleteAuditDriver">
+        delete from driver_audit
+        where id = #{id}
+    </delete>
+
+
+    <select id="countPage" resultType="int">
+        select count(1)
+        from driver_audit
+        <include refid="pageWhere"></include>
+    </select>
+
+    <select id="getWaitAuditList" resultType="com.wj.driving.restfulapi.domain.bo.DriverAuditBO">
+        select
+        <include refid="base_column"></include>
+        from driver_audit
+        <include refid="pageWhere"></include>
+        limit #{page},#{pageSize}
+    </select>
+
+    <select id="getAuditDriverById" resultType="com.wj.driving.restfulapi.domain.bo.DriverAuditBO">
+        select
+        <include refid="base_column"></include>
+        from driver_audit
+        where id = #{id}
+    </select>
+
+    <sql id="pageWhere">
+        <where>
+            <if test="name!=null and name!=''">
+                and name = #{name}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone = #{phone}
+            </if>
+            <if test="state!=null">
+                and state = #{state}
+            </if>
+        </where>
+    </sql>
+</mapper>

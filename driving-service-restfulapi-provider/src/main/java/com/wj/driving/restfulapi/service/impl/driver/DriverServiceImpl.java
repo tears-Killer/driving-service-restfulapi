@@ -2,6 +2,7 @@ package com.wj.driving.restfulapi.service.impl.driver;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wj.driving.restfulapi.domain.bl.driver.DriverServiceBL;
+import com.wj.driving.restfulapi.dto.driver.DriverAuditDTO;
 import com.wj.driving.restfulapi.dto.driver.DriverDetailsDTO;
 import com.wj.driving.restfulapi.request.driver.DriverRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
@@ -35,6 +36,21 @@ public class DriverServiceImpl implements IDriverService {
 
     @Override
     public int updateDriverState(DriverDetailsDTO driverDetailsDTO) {
+        return 0;
+    }
+
+    @Override
+    public PageResult<DriverAuditDTO> waitAuditList(DriverRequestSearch request) {
+        return null;
+    }
+
+    @Override
+    public int auditApproved(DriverAuditDTO auditDTO) {
+        return 0;
+    }
+
+    @Override
+    public int auditRefuse(DriverAuditDTO auditDTO) {
         return 0;
     }
 }

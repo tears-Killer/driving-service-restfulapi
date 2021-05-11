@@ -1,5 +1,6 @@
 package com.wj.driving.restfulapi.service.driver;
 
+import com.wj.driving.restfulapi.dto.driver.DriverAuditDTO;
 import com.wj.driving.restfulapi.dto.driver.DriverDetailsDTO;
 import com.wj.driving.restfulapi.request.driver.DriverRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
@@ -30,6 +31,22 @@ public interface IDriverService {
 
     /**
      * 待审核列表
+     * @param request
+     * @return
      */
-//    PageResult<>
+    PageResult<DriverAuditDTO> waitAuditList(DriverRequestSearch request);
+
+    /**
+     * 审核通过
+     * @param auditDTO
+     * @return
+     */
+    int auditApproved(DriverAuditDTO auditDTO);
+
+    /**
+     * 审核拒绝
+     * @param auditDTO
+     * @return
+     */
+    int auditRefuse(DriverAuditDTO auditDTO);
 }

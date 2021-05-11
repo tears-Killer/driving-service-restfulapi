@@ -1,6 +1,7 @@
 package com.wj.driving.restfulapi.domain.mapper.driver;
 
 import com.wj.driving.restfulapi.domain.bo.DriverBO;
+import com.wj.driving.restfulapi.dto.driver.DriverDetailsDTO;
 import com.wj.driving.restfulapi.request.driver.DriverRequestSearch;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public interface DriverMapper {
 
     List<DriverBO> getDriverDetailsList(DriverRequestSearch requestSearch);
 
-    int insertDriver(DriverBO driverBO);
+    int updateDriverState(DriverDetailsDTO driverDetailsDTO);
 
-    int updateDriver(DriverBO driverBO);
+    int insertDriver(DriverBO driverBO);
 }

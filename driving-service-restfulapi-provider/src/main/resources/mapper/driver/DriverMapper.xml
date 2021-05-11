@@ -3,22 +3,27 @@
 <mapper namespace="com.wj.driving.restfulapi.domain.mapper.driver.DriverMapper">
 
     <sql id="base_colum">
-        id,name,sex,age,phone,id_card,star_level,state
+        id,name,sex,age,phone,id_card,star_level,license_img,state
     </sql>
 
     <insert id="insertDriver" parameterType="com.wj.driving.restfulapi.domain.bo.DriverBO">
         insert into
         driver(name,sex,age,phone,id_card,star_level,state)
-        values(#{name},#{sex},#{age},#{phone},#{idCard},#{starLevel},#{state})
+        values(#{name},#{sex},#{age},#{phone},#{idCard},5,0)
     </insert>
 
-    <update id="updateDriver" parameterType="com.wj.driving.restfulapi.domain.bo.DriverBO">
+    <update id="updateDriverState" parameterType="com.wj.driving.restfulapi.dto.driver.DriverDetailsDTO">
         update driver
         <set>
-            <if test="name!=null and name!=''">
-
+            <if test="state!=null">
+                state = #{state}
             </if>
         </set>
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+        </where>
     </update>
 
     <select id="countPage" resultType="java.lang.Integer">

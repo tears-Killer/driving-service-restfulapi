@@ -41,6 +41,10 @@ public class DriverDetailsDTO implements Serializable {
      */
     private Integer starLevel;
     /**
+     * 驾照图片
+     */
+    private String licenseImg;
+    /**
      *状态
      */
     private String stateName;
@@ -99,6 +103,14 @@ public class DriverDetailsDTO implements Serializable {
 
     public void setStarLevel(Integer starLevel) {
         this.starLevel = starLevel;
+    }
+
+    public String getLicenseImg() {
+        return licenseImg;
+    }
+
+    public void setLicenseImg(String licenseImg) {
+        this.licenseImg = licenseImg;
     }
 
     public String getStateName() {
