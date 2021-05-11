@@ -1,5 +1,6 @@
 package com.wj.driving.restfulapi.domain.bl.driver;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.wj.driving.restfulapi.domain.bo.DriverAuditBO;
 import com.wj.driving.restfulapi.domain.bo.DriverBO;
@@ -11,6 +12,8 @@ import com.wj.driving.restfulapi.enums.driver.DriverAuditStateEnum;
 import com.wj.driving.restfulapi.enums.driver.DriverStateEnum;
 import com.wj.driving.restfulapi.request.driver.DriverRequestSearch;
 import com.wj.driving.restfulapi.result.PageResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +33,8 @@ import java.util.Objects;
  */
 @Service
 public class DriverServiceBL {
+
+    private static final Logger log = LoggerFactory.getLogger(DriverServiceBL.class);
 
     @Resource
     private DriverMapper driverMapper;
@@ -62,7 +67,9 @@ public class DriverServiceBL {
     public PageResult<DriverAuditDTO> waitAuditList(DriverRequestSearch request){
         PageResult<DriverAuditDTO> result = new PageResult<>();
         int totalCount = driverAuditMapper.countPage(request);
+        log.info("totalCount:{}",totalCount);
         List<DriverAuditBO> waitAuditList = totalCount>0 ? driverAuditMapper.getWaitAuditList(request) : Lists.newArrayList();
+        log.info("auditList:{}",JSONObject.toJSONString(waitAuditList));
         List<DriverAuditDTO> resultList = new ArrayList<>();
         if(totalCount>0){
             waitAuditList.forEach(item ->{
@@ -72,6 +79,7 @@ public class DriverServiceBL {
                 resultList.add(auditDTO);
             });
         }
+        log.info("resultList:{}", JSONObject.toJSONString(resultList));
         result.setList(resultList);
         result.setTotalCount(totalCount);
         return result;

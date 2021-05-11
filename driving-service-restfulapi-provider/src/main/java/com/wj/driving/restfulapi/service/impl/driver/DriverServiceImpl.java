@@ -41,16 +41,16 @@ public class DriverServiceImpl implements IDriverService {
 
     @Override
     public PageResult<DriverAuditDTO> waitAuditList(DriverRequestSearch request) {
-        return null;
+        return driverServiceBL.waitAuditList(request);
     }
 
     @Override
     public int auditApproved(DriverAuditDTO auditDTO) {
-        return 0;
+        return driverServiceBL.auditApproved(auditDTO);
     }
 
     @Override
     public int auditRefuse(DriverAuditDTO auditDTO) {
-        return 0;
+        return driverServiceBL.auditRefused(auditDTO);
     }
 }
