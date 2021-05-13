@@ -42,10 +42,10 @@
     <sql id="pageWhere">
         <where>
             <if test="name!=null and name!=''">
-                and name = #{name}
+                and name like concat('%',trim(#{name}),'%')
             </if>
             <if test="phone!=null and phone!=''">
-                and phone = #{phone}
+                and phone like concat('%',trim(#{phone}),'%')
             </if>
             <if test="state!=null">
                 and state = #{state}

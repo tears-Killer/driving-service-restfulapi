@@ -4,7 +4,7 @@
 
     <!--基础字段-->
     <sql id="base_column">
-        id,name,nickname,sex,mobile_no,id_card,address_id,state,create_time,last_update_time
+        id,name,nickname,sex,mobile_no,id_card,state,create_time,last_update_time
     </sql>
 
     <resultMap id="userMap" type="com.wj.driving.restfulapi.domain.bo.UserBO">
@@ -14,7 +14,6 @@
         <result column="sex" property="sex"/>
         <result column="mobile_no" property="mobileNo"/>
         <result column="id_card" property="idCard"/>
-        <result column="address_id" property="addressId"/>
         <result column="state" property="state"/>
         <result column="create_time" property="createTime"/>
         <result column="last_update_time" property="lastUpdateTime"/>

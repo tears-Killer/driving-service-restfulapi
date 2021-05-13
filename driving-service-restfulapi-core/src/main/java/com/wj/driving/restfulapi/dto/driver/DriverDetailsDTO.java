@@ -45,6 +45,10 @@ public class DriverDetailsDTO implements Serializable {
      */
     private String licenseImg;
     /**
+     * 代驾状态
+     */
+    private Integer state;
+    /**
      *状态
      */
     private String stateName;
@@ -111,6 +115,14 @@ public class DriverDetailsDTO implements Serializable {
 
     public void setLicenseImg(String licenseImg) {
         this.licenseImg = licenseImg;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public String getStateName() {

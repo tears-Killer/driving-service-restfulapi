@@ -1,6 +1,8 @@
 package com.wj.driving.restfulapi.dto.driver;
 
-public class DriverAuditDTO {
+import java.io.Serializable;
+
+public class DriverAuditDTO implements Serializable {
     /**
      * 主键id
      */

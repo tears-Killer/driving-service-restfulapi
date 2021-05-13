@@ -1,5 +1,6 @@
 package com.wj.driving.restfulapi.domain.bo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  * @author wangjian
  * @since 2021/5/7
  */
-public class DriverAuditBO {
+public class DriverAuditBO implements Serializable {
 
     private Long id;
 

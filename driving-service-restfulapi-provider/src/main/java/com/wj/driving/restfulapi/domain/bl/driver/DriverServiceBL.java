@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,6 +77,11 @@ public class DriverServiceBL {
                 DriverAuditDTO auditDTO = new DriverAuditDTO();
                 BeanUtils.copyProperties(item,auditDTO);
                 auditDTO.setStateName(DriverAuditStateEnum.getSourceType(item.getState()));
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String createTime = formatter.format(item.getCreateTime());
+                auditDTO.setCreateTime(createTime);
+                String lastUpdateTime = formatter.format(item.getUpdateTime());
+                auditDTO.setUpdateTime(lastUpdateTime);
                 resultList.add(auditDTO);
             });
         }
